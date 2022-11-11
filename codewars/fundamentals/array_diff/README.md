@@ -12,6 +12,6 @@ If a value is present in b, all of its occurrences must be removed from the othe
 ```py
 array_diff([1,2,2,2,3],[2]) == [1,3]
 ```
-Code in https://onlinegdb.com/mudUBK1Mq
+[Code](https://onlinegdb.com/mudUBK1Mq)
 
-Source - https://onlinegdb.com/mudUBK1Mq
+[Source](https://onlinegdb.com/mudUBK1Mq)
