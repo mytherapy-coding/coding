@@ -21,7 +21,7 @@ def solution(string, ending):
 * Time Complexity: O(n)
 * Space Complexity: O(n) 
 
-Where n is the size of input (strings string and ending).
+Where n is the size of ending).
 
 The solution is linear.
 More trivial solutions (see the Python file) are polynomial time.
