@@ -1,25 +1,27 @@
-def solution(string, ending):
+def solution1(string, ending):
     return string.endswith(ending)
 
-
-
-def solution1(a, b):
-    for i in range(len(b)):
-        if b[i] != a[-len(b)+i]:
+def solution2(string, ending):
+    if len(string) < len(ending):
+        return False
+    for i in range(len(ending)):
+        if ending[i] != string[-len(ending)+i]:
             return False
     return True
 
-
 tab = (
+    ("", "lost", False),
+    (";", "", True),
+    ("", "", True),
     ("forever", "ever", True),
-    ("endswith", "end", True),
-    ("love you", "love", True),
-    ("timeshare", "share", [True),
+    ("endswith", "end", False),
+    ("love you", "love", False),
+    ("timeshare", "share", True),
     ("unrealistic", "realistic", True),
     ("copay", "pay", True),
 )
 
-for f in solution, solution1:
-    for a, b, c in tab:
-        assert f(a, b) == c, f'failed test on {f.__name__}({a}, {b}), expected {c}'
+for f in solution1, solution2:
+    for string, ending, c in tab:
+        assert f(string, ending) == c, f'failed test on {f.__name__}({string}, {ending}), expected {c}'
 
