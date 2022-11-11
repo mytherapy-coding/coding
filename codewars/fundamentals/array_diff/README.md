@@ -1,6 +1,6 @@
 ## Array.diff
 
-Code in https://onlinegdb.com/mudUBK1Mq
+C
 
 Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
 It should remove all values from list a, which are present in list b keeping their order.
@@ -12,4 +12,6 @@ If a value is present in b, all of its occurrences must be removed from the othe
 ```py
 array_diff([1,2,2,2,3],[2]) == [1,3]
 ```
+Code in https://onlinegdb.com/mudUBK1Mq
 
+Source - https://onlinegdb.com/mudUBK1Mq
