@@ -1,5 +1,3 @@
-
-
 def array_diff0(a: list, b: list) -> list:
     c = a[:]
     for x in b:
