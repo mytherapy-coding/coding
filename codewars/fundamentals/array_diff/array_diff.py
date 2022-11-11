@@ -1,14 +1,15 @@
+
 def array_diff1(a: list, b: list) -> list:
+    b = set(b)
+    return [x for x in a if x not in b]
+
+def array_diff2(a: list, b: list) -> list:
     c = []
     for x in a:
         if x not in b:
             c.append(x)
 
     return c
-
-def array_diff2(a: list, b: list) -> list:
-    b = set(b)
-    return [x for x in a if x not in b]
 
 def array_diff3(a, b):
     c = []
