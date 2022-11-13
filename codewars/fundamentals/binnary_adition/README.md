@@ -25,7 +25,6 @@ def add_binary3(a: int, b: int) -> str:
 * Time Complexity: O(log(a+b))
 * Space Complexity: O(log(a+b)) 
 
-Where n is the size of input (lists a and b).
 
 The solution is linear.
 More trivial solutions (see the Python file) are polynomial time.
