@@ -27,6 +27,8 @@ def add_binary3(a: int, b: int) -> str:
 
 The algorithm runs in polynomial time and space (O(the input size)).
 
+See other solutions in the Python file.
+
 
 * [Code at OnlineDB](https://onlinegdb.com/T7UmFCH4Z)
 * [Source from Codewars](https://www.codewars.com/kata/551f37452ff852b7bd000139/train/python)
