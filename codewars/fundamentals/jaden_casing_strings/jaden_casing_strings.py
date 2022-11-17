@@ -165,3 +165,22 @@ test_to_jaden_case()
 
 perftest_to_jaden_case()
 
+#####
+
+def to_jaden_case5(s: str) -> str:
+    res: list[str] = []         # O(1)
+    # n * O(1) = O(n)
+    for i, c in enumerate(s):   # n,  n = len(s)
+        # O(1)
+        if c.isspace():         # O(1)
+            res.append(c)       # O(1)
+        elif i == 0 or s[i-1].isspace():   # O(1) + O(1)
+            res.append(c.upper())          # O(1) + O(1)
+        else:
+            res.append(c.lower())          # O(1) + O(1)
+
+
+    return ''.join(res) # O(n)
+
+    # O(1) + O(n) + O(n) = O(n)
+
