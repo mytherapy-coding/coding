@@ -1,12 +1,9 @@
 def is_triangle(a: float, b: float, c: float) -> bool:
     return a + b > c and a + c > b and b + c > a
 
-def is_triangle(a: float, b: float, c: float) -> bool:
-    return a + b > c and a + c > b and b + c > a
-
 def test_is_triangle():
     
-    tab = (
+    tab: tuple[tuple[float, float, float, bool], ...] = (
         (4, 3, 7, False),
         (2, 6, 7, True),
         (7, 4, 4, True),
@@ -39,13 +36,7 @@ def test_is_triangle():
         result = is_triangle(a, b, c)
         assert result == expected, f'failed test on ({a}, {b}, {c}), {expected=}'
     print("end of tests")   
-    
+       
     
 test_is_triangle()
-    
-
-    
-
-
-
     
