@@ -28,5 +28,5 @@ The algorithm runs in polynomial time and space (O(the input size)).
 See other solutions in the Python file.
 
 
-* [Code at OnlineDB](https://onlinegdb.com/IL0E0EFWA)
+* [Code at OnlineDB](https://onlinegdb.com/RQDkFHrZso)
 * [Source from Codewars](https://www.codewars.com/kata/56606694ec01347ce800001b/train/python)
