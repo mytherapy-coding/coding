@@ -29,7 +29,7 @@ def feast2(beast: str, dish: str) -> bool:
 
 The solution is constant in time and space.
 
-See other solutions in Python fil).
+See other solutions in Python file.
 
 * [Code at OnlineDB](https://onlinegdb.com/ZI1nNF2uv)
 * [Source from Codewars](https://www.codewars.com/kata/5aa736a455f906981800360d/train/python)
