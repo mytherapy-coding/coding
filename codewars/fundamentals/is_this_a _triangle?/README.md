@@ -20,8 +20,8 @@ def is_triangle(a: float, b: float, c: float) -> bool:
 
 ```
 
-* Time Complexity: O(n)
-* Space Complexity: O(n) 
+* Time Complexity: O(1)
+* Space Complexity: O(1) 
 
 The algorithm runs in polynomial time and space (O(the input size)).
 
