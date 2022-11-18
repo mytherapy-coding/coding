@@ -22,5 +22,6 @@ def text_reverse_words():
             assert result == expected, f'test failed on {f.__name__}({text}), {expected=}, {result=}'
         
     print('end of tests')   
-    
+
+                   
 text_reverse_words()  
