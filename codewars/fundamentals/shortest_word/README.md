@@ -18,7 +18,7 @@ def find_short3(s):
 * Time Complexity: O(n)
 * Space Complexity: O(n) 
 
-Where n is the size of input (lists a and b).
+Where n is the size of input where n = len(s).
 
 The solution is linear.
 
