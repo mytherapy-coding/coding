@@ -21,7 +21,8 @@ Names given are always valid strings.
 
 ```py
 def are_you_playing_banjo(name: str) -> str:
-    return name + (‘ plays’ if name[:1] in (‘R’, ‘r’) else ‘ does not play’) + ‘ banjo’
+    return name + (' plays' if name[:1] in ('R', 'r') else ' does not play') + ' banjo'
+
 ```
 
 * Time Complexity: O(1)
