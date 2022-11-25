@@ -37,7 +37,7 @@ def points6(games: list[str]) -> int:
 Where n is the size of input.
 
 The solution is linear.
-More trivial solutions (see the Python file).
+You may find other solutions in the Python file.
 
 * [Code at OnlineDB](https://www.onlinegdb.com/fork/_UYJ-M25M)
 * [Source from Codewars](https://www.codewars.com/kata/5bb904724c47249b10000131/train/python)
