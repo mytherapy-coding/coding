@@ -92,8 +92,39 @@ class MinQeue2:
         return bool(self.items)
 
 
+import heapq
+
+
+class MinQueue3:
+    def __init__(self, seq):
+        self.items = []
+        self.extend(seq)
+
+    def extend(self, iterable):
+        self.items.extend(iterable)
+        heapq.heapify(self.items)
+
+
+    def add(self, x):
+        heapq.heappush(self.items, x)
+
+    def get_min(self):
+        return self.items[0]
+
+    def remove_min(self):
+        return heapq.heappop(self.items)
+
+    def __repr__(self):
+        return f'{type(self).__qualname__}({self.items})'
+
+    def __len__(self):
+        return len(self.items)
+
+    def __bool__(self):
+        return bool(self.items)
+
 def test():
-    for min_queue in MinQeue0, MinQeue1, MinQeue2:
+    for min_queue in MinQeue0, MinQeue1, MinQeue2, MinQueue3:
         que = min_queue([20, 10, 30, 20])
         print('queue: ', que)
         for _ in range(2):
