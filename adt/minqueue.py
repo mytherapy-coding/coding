@@ -26,6 +26,13 @@ class MinQeue0:
     def __bool__(self):
         return bool(self.items)
 
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if not self:
+            raise StopIteration()
+        return self.remove_min()
 
 class MinQeue1:
     def __init__(self, seq=()):
@@ -62,6 +69,14 @@ class MinQeue1:
     def __bool__(self):
         return bool(self.items)
 
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if not self:
+            raise StopIteration()
+        return self.remove_min()
+
 
 class MinQeue2:
     def __init__(self, seq=()):
@@ -90,6 +105,14 @@ class MinQeue2:
 
     def __bool__(self):
         return bool(self.items)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if not self:
+            raise StopIteration()
+        return self.remove_min()
 
 
 import heapq
@@ -123,6 +146,23 @@ class MinQueue3:
     def __bool__(self):
         return bool(self.items)
 
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if not self:
+            raise StopIteration()
+        return self.remove_min()
+
+
+def mysorted(values, mkqueue=MinQeue0):
+    my_queue = MinQeue0(values)
+    res = []
+    while my_queue:
+        res.append(my_queue.remove_min())
+    return res
+
+
 def test():
     for min_queue in MinQeue0, MinQeue1, MinQeue2, MinQueue3:
         que = min_queue([20, 10, 30, 20])
@@ -138,5 +178,20 @@ def test():
 
         print()
 
+def test1():
+    values = [70,50,30]
+    expected = sorted(values)
+    print(expected)
+    print()
+    for min_queue in MinQeue0, MinQeue1, MinQeue2, MinQueue3:
+        print(mysorted(values, min_queue))
+
+
+
+
+
 
 test()
+print()
+test1()
+
