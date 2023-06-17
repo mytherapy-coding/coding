@@ -23,22 +23,18 @@ The 4th largest integer in nums is "3".
 ### Solution
 
 ```py
-def kthLargestNumber(nums: list[str], k: int) -> str:
-    res = []
-    for num in nums:
-        heapq.heappush(res, int(num))
-        if len(res) > k:
-            heapq.heappop(res)
-    return str(res[0])
-
+def kClosest5(points: list[list[int]], k: int) -> list[list[int]]:
+    ordered = [(p[0] ** 2 + p[1] ** 2, p) for p in points]
+    heapq.heapify(ordered)
+    return [heapq.heappop(ordered)[1] for _ in range(k)]
 ```
-* Time Complexity: O(nlogk)
-* Space Complexity: O(k) 
+* Time Complexity: O(n + k log n)
+* Space Complexity: O(m) 
 
 See other solutions in the Python file.
 
 
-* [Source from Leedcode](https://leetcode.com/problems/find-the-kth-largest-integer-in-the-array/)
+* [Source from Leedcode](https://leetcode.com/problems/k-closest-points-to-origin/description/)
 
 
 
