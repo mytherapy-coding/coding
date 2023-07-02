@@ -36,7 +36,7 @@ def kthLargestNumber6(nums: list[str], k: int) -> str:
     for num in nums:
         heapq.heappush(ordered, int(num))
         if len(ordered) > k:
-            heapq.heappop(res)
+            heapq.heappop(ordered)
     return str(ordered[0])
 
 
