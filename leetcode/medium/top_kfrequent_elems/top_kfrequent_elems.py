@@ -35,7 +35,12 @@ def top_kfrequent4(nums: list[int], k: int) -> list[int]:
 
 
 def test():
-    for nums, k in ([10, 10, 10, 80, 20, 30], 2), ([10, 30, 10, 20, 20, 30], 4), ([80, 10, 70, 20, 20, 30], 3):
+    tests = [
+        ([10, 10, 10, 80, 20, 30], 2),
+        ([10, 30, 10, 20, 20, 30], 4),
+        ([80, 10, 70, 20, 20, 30], 3),
+    ]
+    for nums, k in tests:
         for top_kfrequent in top_kfrequent0, top_kfrequent1, top_kfrequent2, top_kfrequent3:
             print(f'{top_kfrequent.__name__}({nums}, {k=}): {top_kfrequent4(nums, k)}')
         print()
