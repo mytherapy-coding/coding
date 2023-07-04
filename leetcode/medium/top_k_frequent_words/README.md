@@ -12,6 +12,7 @@ Output: ["i","love"]
 Explanation: "i" and "love" are the two most frequent words.
 Note that "i" comes before "love" due to a lower alphabetical order.
 ```
+
 ### Example 2:
 
 ```
@@ -20,7 +21,9 @@ Output: ["the","is","sunny","day"]
 Explanation: "the", "is", "sunny" and "day" are the four most frequent words, with the number of occurrence being 4, 3, 2 and 1 respectively.
 ```
 
+
 ### Constraints:
+
 ```
 1 <= words.length <= 500
 1 <= words[i].length <= 10
@@ -35,7 +38,7 @@ def topKFrequent(words: list[str], k: int) -> list[str]:
     heapq.heapify(ordered)
     return [heapq.heappop(ordered)[1] for _ in range(k)]
 ```
-* Time Complexity: O(n + k log n)
+* Time Complexity: O(n + k logn)
 * Space Complexity: O(k) 
 
 See other solutions in the Python file.

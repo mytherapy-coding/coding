@@ -51,7 +51,6 @@ def topKFrequent4(words: list[str], k: int) -> list[str]:
     return heapq.nsmallest(k, count.keys(), key=lambda w: (-count[w], w))
 
 
-'''
 def test():
     funcs = [
         topKFrequent0,
@@ -62,58 +61,16 @@ def test():
         ]
 
     tests = [
-
+        (["i", "love", "leetcode", "i", "love", "coding"], 2, ['i', 'love']),
+        (["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4, ["the","is","sunny","day"]),
     ]
+
     for func in funcs:
-        for nums, k, expected_result in tests:
-            result = func(nums, k)
-            assert result == expected_result, f"{func.__name__}{nums, k} => {result} (Expected: {expected_result})"
-            print(f"{func.__name__}{nums, k} => {result} (Expected: {expected_result})")
-
-print(test())
-'''
-
-
-words = ["the","day","is","sunny","the","the","the","sunny","is","is"]
-k = 4
-print(topKFrequent3(words, k))
-'''
-words = ["love", "i", "leetcode", "i", "love", "coding"]
-
-
-k = 2
-print(topKFrequent3(words, k))
-
-print(topKFrequent0(words, k))
-print(topKFrequent1(words, k))
-print()
-print(topKFrequent2(words, k))
-print(topKFrequent3(words, k))
-print(topKFrequent4(words, k))
-'''
-
-
-'''
-def test():
-    funcs = [
-        topKFrequent0,
-        topKFrequent1,
-        
-
-        ]
-
-    tests = [
-        (["i", "love", "leetcode", "i", "love", "coding"], 2),
-        (["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4),
-        
-
-    ]
-    for func in funcs:
-        for nums, k, expected_result in tests:
-            result = func(nums, k)
-            assert result == expected_result, f"{func.__name__}{nums, k} => {result} (Expected: {expected_result})"
-            print(f"{func.__name__}{nums, k} => {result} (Expected: {expected_result})")
+        for words, k, expected_result in tests:
+            result = func(words, k)
+            assert result == expected_result, f"{func.__name__}{words, k} => {result} (Expected: {expected_result})"
+            print(f"{func.__name__}{words, k} => {result} (Expected: {expected_result})")
 
 print(test())
 
-'''
+
