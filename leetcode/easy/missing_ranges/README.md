@@ -24,12 +24,23 @@ Explanation: The ranges are:
 ### Solution
 
 ```py
+import itertools
 
+def findMissingRanges(nums: list[int], lower: int, upper: int) -> list[tuple[int, int]]:
+    start = lower
+    gaps = []
+    for num in itertools.chain(nums, [upper + 1]):  # O(n)
+        if num > start:
+            gaps.append((start, num - 1))
+        start = num + 1
+    return gaps
 ```
-* Time Complexity: O()
-* Space Complexity: O() 
+* Time Complexity: O(n)
+* Space Complexity: O(1) using itertools.chain
 
-Where n is the size of score.
+Where n is the size of nums.
+
+The algorithm is linear in time and constant in space.
 
 See other solutions in the Python file.
 
