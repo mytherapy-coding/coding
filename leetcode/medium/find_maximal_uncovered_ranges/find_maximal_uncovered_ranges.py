@@ -43,7 +43,7 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
     res = []
     candidate_start, candidate_end = ordered[0]
     for start, end in ordered:
-        if start <= candidate_end:
+        if start - 1 <= candidate_end:
             candidate_end = max(candidate_end, end)
         else:
             res.append([candidate_start, candidate_end])
@@ -52,25 +52,60 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
     res.append([candidate_start, candidate_end])
     return res
 
-def findMaximalUncoveredRanges(n: int, ranges: list[list[int]]) -> list[list[int]]:
-    # 0(n log n)
-    uncovered_start = 0
+
+def findMaximalUncoveredRanges3(n: int, ranges: list[list[int]]) -> list[list[int]]:
+    ordered = [[-1, -1]] + merge(ranges) + [[n, n]]
     res = []
-    for start, end in itertools.chain(merge(ranges), [[n, n]]):
-        if start > uncovered_start:
-            res.append([uncovered_start, start - 1])
-        uncovered_start = max(uncovered_start, end + 1)
+    for i in range(1, len(ordered)):
+        _, end0 = ordered[i - 1]
+        start, _ = ordered[i]
+        if end0 + 1 <= start - 1:
+            res.append([end0 + 1, start - 1])
     return res
 
+
+def findMaximalUncoveredRanges4(n: int, ranges: list[list[int]]) -> list[list[int]]:
+    ordered = merge([[-1, -1]] + ranges + [[n, n]])
+    res = []
+    for i in range(1, len(ordered)):
+        res.append([ordered[i - 1][1] + 1, ordered[i][0] - 1])
+    return res
+
+
+def findMaximalUncoveredRanges(n: int, ranges: list[list[int]]) -> list[list[int]]:
+    ordered = merge(itertools.chain([[-1, -1]], ranges, [[n, n]]))
+    return [[ordered[i - 1][1] + 1, ordered[i][0] - 1] for i in range(1, len(ordered))]
+
+
 def tests():
+
+    tab = [
+        ([], 10, [[0, 9]]),
+        ([[0, 9]], 10, []),
+
+    ]
+    funcs = [
+        findMaximalUncoveredRanges0,
+        findMaximalUncoveredRanges1,
+    ]
+    for ranges, n, expected in tab:
+        for func in funcs:
+            result = func(n, ranges)
+            assert result == expected, f'{func.__qualname__} failed on {ranges}, {n=}: {result}, but {expected=}'
+
+
+
     n = 10
     ranges = []
     print(findMaximalUncoveredRanges(n, ranges))
 
     n = 10
-    ranges = [[3, 5]]
+    ranges = [[0, 9]]
     print(findMaximalUncoveredRanges(n, ranges))
 
+    n = 10
+    ranges = [[3, 5]]
+    print(findMaximalUncoveredRanges(n, ranges))
     n = 10
     ranges = [[3, 5], [7, 8]]
     print(findMaximalUncoveredRanges(n, ranges))
