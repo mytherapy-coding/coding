@@ -91,7 +91,7 @@ def eraseOverlapIntervals4(intervals: list[list[int]]) -> int:
     end = intervals[0][1]
     count = 1
 
-    for i, iv in enumerate(intervals):
+    for iv in intervals:
         if iv[0] >= end:
             end = iv[1]
             count += 1
@@ -113,6 +113,20 @@ def eraseOverlapIntervals5(intervals: list[list[int]]) -> int:
     return len(intervals) - count
 
 
+def eraseOverlapIntervals6(intervals: list[list[int]]) -> int:
+    intervals = sorted(intervals, key=operator.itemgetter(1))
+
+    end = intervals[0][0]
+    count = 0
+
+    for iv in intervals:
+        if iv[0] >= end:
+            end = iv[1]
+            count += 1
+
+    return len(intervals) - count
+
+
 def tests():
     intervals = [[40, 70], [56, 80], [63, 87], [-51, 39], [-74, 59], [38, 41], [-49, 17], [6, 57], [36, 85], [-73, 26],
                  [-6, 70], [15, 70], [66, 78], [37, 87], [79, 96], [46, 97], [36, 49], [-58, 40], [-58, 52], [26, 83],
@@ -125,6 +139,9 @@ def tests():
 
     intervals = [[1, 2], [1, 3], [2, 3], [3, 4], [3, 5]]
     print(eraseOverlapIntervals3(intervals))
+
+    intervals = [[1, 2], [1, 3], [2, 3], [3, 4], [3, 5]]
+    print(eraseOverlapIntervals6(intervals))
 
 
 tests()
