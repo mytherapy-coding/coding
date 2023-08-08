@@ -29,37 +29,3 @@ See other solutions in the Python file.
 
 
 * [Source from Leedcode](https://leetcode.com/problems/powx-n/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
