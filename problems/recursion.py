@@ -1,3 +1,4 @@
+import itertools
 from collections.abc import Iterable
 
 '''
@@ -436,3 +437,519 @@ def flatten0(nums):
 
 print(flatten0([[1, 2, 3], 10, 20, [100, (1000, 2000), 200], 30, 40]))
 print(flatten0([range(10), {10, (100, 200)}]))
+
+
+def interlive0(values1: list, values2: list) -> list:
+    if not values1 or not values2:
+        return values1 + values2
+    head = values1[0:1] + values2[0:1]
+    tail = interlive0(values1[1:], values2[1:])
+    print('govnoooo')
+    print('tailllllll')
+    print(values1, values2, head, tail)
+    return head + tail
+
+
+print(interlive0([30, 50, 70, 80], [4, 8]))
+
+
+def interlive1(values1: list, values2: list) -> list:
+    zipped = itertools.zip_longest(values1, values2)
+    print('zippeddddd')
+    # print(list(zipped))
+    print(list(itertools.chain.from_iterable(zipped)))
+    return [val for val in itertools.chain.from_iterable(zipped) if val is not None]
+
+
+print('_________')
+interlive1([30, 50, 70, 80], [4, 8])
+
+
+def interlive2(values1: list, values2: list) -> list:
+    if not values1 or not values2:
+        return values1 + values2
+    head = values1[0:1]
+    tail = interlive2(values2, values1[1:])
+    print(tail)
+    return head + tail
+
+
+print('??????')
+print(interlive2([30, 50, 70, 80], [4, 8]))
+
+
+def govno(n):
+    for _ in range(n):
+        print('#' * n)
+
+
+govno(5)
+
+
+def govno1(n, i=0):
+    if i >= n:
+        return
+    print('#' * n)
+    govno1(n, i + 1)
+
+
+print('===========')
+govno1(5)
+
+
+def govno2(n):
+    def f(i):
+        if i >= n:
+            return
+        print('#' * n)
+        f(i + 1)
+
+    f(0)
+
+
+print('===========')
+govno2(3)
+
+print('```````````````````')
+
+
+def rombik(n):
+    if n < 1:
+        return
+    print(n * '#')
+    rombik(n - 1)
+
+
+rombik(5)
+
+
+def rombik(n):
+    if n < 1:
+        return
+
+    print('#' * n)
+    rombik(n - 1)
+    print('#' * n)
+
+
+rombik(5)
+
+
+def rombik1():
+    print('#')
+    print('#')
+
+
+def rombik2():
+    print('##')
+    rombik1()
+    print('##')
+
+
+def romnik(n):
+    if n < 1:
+        return
+    print('#' * n)
+    rombik(n - 1)
+    print('#' * n)
+
+
+print('!!!!!!!!!!!!!!!!!!')
+
+
+def sum_even0(nums):
+    if not nums:
+        return 0
+    res = 0
+    if nums[0] % 2 == 0:
+        res += nums[0]
+    res += sum_even0(nums[1:])
+    return res
+
+
+print(sum_even0([20, 33, 50, 65, 70]))
+
+
+def sum_even1(nums):
+    if not nums:
+        return 0
+    res = 0
+    if nums[0] % 2 == 0:
+        res += nums[0]
+    return res + sum_even1(nums[1:])
+
+
+print(sum_even1([20, 33, 50, 65, 70]))
+
+
+def sum_even2(nums):
+    if not nums:
+        return 0
+    head = nums[0] * (nums[0] % 2 == 0)
+    return head + sum_even2(nums[1:])
+
+
+print(sum_even2([20, 33, 50, 65, 70]))
+
+
+def sum_even3(nums):
+    if not nums:
+        return 0
+    return nums[0] * (nums[0] % 2 == 0) + sum_even3(nums[1:])
+
+
+print(sum_even3([20, 33, 50, 65, 70]))
+
+
+def sum_even4(nums):
+    return nums[0] * (nums[0] % 2 == 0) + sum_even4(nums[1:]) if nums else 0
+
+
+print(sum_even3([20, 33, 50, 65, 70]))
+
+
+def sum_even5(nums: list[int]) -> int:
+    return sum(num for num in nums if num % 2 == 0)
+
+
+print(sum_even5([20, 33, 50, 65, 70]))
+
+
+def sum_even6(nums: list[int]) -> int:
+    return sum(num * (num % 2 == 0) for num in nums)
+
+
+print(sum_even6([20, 33, 50, 65, 70]))
+
+
+def sum_odd(nums: list[int]) -> int:
+    return sum(num * (num % 2) for num in nums)
+
+
+print(sum_odd([20, 33, 50, 65, 70]))
+
+
+def sum_even7(nums: list[int]) -> int:
+    return sum(num * (num % 2) for num in nums)
+
+
+print(sum_even7([20, 33, 50, 65, 70]))
+
+
+def sum_even8(nums: list[int]) -> int:
+    return sum(filter(lambda x: 1 - x % 2, nums))
+
+
+print(sum_even8([20, 33, 50, 65, 70]))
+
+
+def sum_even9(nums: list[int]) -> int:
+    return sum(filter(lambda x: 1 - x & 1, nums))
+
+
+print(sum_even9([20, 33, 50, 65, 70]))
+
+
+def sum_even10(nums: list[int]) -> int:
+    return sum(filter(lambda x: (x & 1) ^ 1, nums))
+
+
+print(sum_even10([20, 33, 50, 65, 70]))
+
+a = 14
+b = 4
+
+# 1110
+# 100
+# 0100
+print(a and b)
+print(b & a)
+
+'''
+decimal vs binary
+0 -> 0
+1 -> 1
+2 -> 10
+3 -> 11
+4 -> 100
+5 -> 101
+6 -> 110
+7 -> 111
+8 -> 1000
+9 -> 1001
+10 -> 1010
+11 -> 1011
+12 -> 1100
+13 -> 1101
+14 -> 1110
+15 -> 1111
+16 -> 10000
+'''
+
+
+# sum_even10(nums: int) computes even numbers from nums
+def sum_even10(nums: int):
+    def f(beg: int) -> int:
+        # f(beg) computes the sum of all even nums from nums[beg:]
+        # f(0) computes the sum of all even nums from nums
+        if beg >= len(nums):
+            return 0
+        head = nums[beg] if nums[beg] % 2 == 0 else 0
+        return head + f(beg + 1)
+
+    return f(0)
+
+
+print(sum_even10([20, 33, 50, 65, 70]))
+
+print('************************')
+
+
+def even_numbers(nums: list[int]) -> list[int]:
+    even_numbers = []
+    for num in nums:
+        if num % 2 == 0:
+            even_numbers.append(num)
+    return even_numbers
+
+
+print(even_numbers([20, 33, 50, 65, 70]))
+
+
+def even_numbers1(nums: list[int]) -> list[int]:
+    return [num for num in nums if num % 2 == 0]
+
+
+print(even_numbers1([20, 33, 50, 65, 70]))
+
+
+def even_numbers2(nums: list[int]) -> list[int]:
+    if not nums:
+        return []
+    even_numbers = []
+    if nums[0] % 2 == 0:
+        even_numbers.append(nums[0])
+    even_numbers.extend(even_numbers2(nums[1:]))
+    return even_numbers
+
+
+print(even_numbers2([20, 33, 50, 65, 70]))
+
+
+def even_numbers3(nums: list[int]) -> list[int]:
+    if not nums:
+        return []
+    head = [nums[0]] if nums[0] % 2 == 0 else []
+    return head + even_numbers3(nums[1:])
+
+
+print(even_numbers3([20, 33, 50, 65, 70]))
+
+
+def even_numbers4(nums: list[int]) -> list[int]:
+    if not nums:
+        return []
+    head = [nums[0]] * (1 - nums[0] % 2)
+    return head + even_numbers4(nums[1:])
+
+
+print(even_numbers4([20, 33, 50, 65, 70]))
+
+
+def even_numbers5(nums: list[int]) -> list[int]:
+    return list(filter(lambda x: x % 2 == 0, nums))
+
+
+print(even_numbers5([20, 33, 50, 65, 70]))
+
+
+def even_numbers6(nums: list[int]) -> list[int]:  # time complexity 0(n^2)
+    def f(n: int):
+        '''
+        [20, 33, 50, 65, 70] - nums
+        [0,  1,  2,  3,  4] - indexes
+        f(0) = []
+        f(1) = [20]
+        f(2) = [20]
+        f(3) = [20, 50]
+        f(4) = [20, 50]
+        f(5) = [20, 50, 70]
+        create an array with even numbers from nums[0:n]
+        '''
+        if n == 0:
+            return []
+        prefix_even = f(n - 1)
+        tail = [nums[n - 1]] if nums[n - 1] % 2 == 0 else []
+        return prefix_even + tail
+
+    return f(len(nums))
+
+
+print()
+print(even_numbers6([20, 33, 50, 65, 70]))
+'''
+nums = [20, 33, 50, 65, 70]
+print()
+print(len(nums))
+print(list(range(len(nums))))
+print(list(range(5)))
+print()
+print(nums[:4])
+print(list(range(4)))
+print(range(4)) #- generator, same as [:4]
+
+# [:4] - 4 elements
+# index 4(fifth element in an array) -> 70
+'''
+
+
+def even_numbers7(nums: list[int]) -> list[int]:  # time complexity 0(n^2)
+    def f(n: int):
+        if n == 0:
+            return []
+        prefix_even = f(n - 1)
+        tail = [nums[n - 1]] if nums[n - 1] % 2 == 0 else []
+        res = prefix_even + tail
+        return res
+
+    return f(len(nums))
+
+
+print(even_numbers7([10, 20]))
+'''
+len(nums) == 2
+
+
+'''
+
+def f(n):
+    if n == 0:
+        return
+    print('----')
+    print('*' * n, n)
+    f(n - 1)
+    print('#' * n, n)
+f(5)
+
+'''
+s_len('') = 0
+s_len(s) = s_len(s[1:]) + 1
+
+'''
+def s_len(s: str) -> int:
+    if not s:
+        return 0
+    return s_len(s[1:]) + 1
+
+print(len('govno'))
+
+'''
+SUM(a) = a0 + a1 + a1 + a2 + a3 + ... + a(n-2) + a(n-1) 
+SUM(a[:n-1]) = a0 + a1 + a1 + a2 + a3 + ... +a(n-2) 
+SUM([]) = 0
+SUM(a) = SUM(a[:n-1]) + a(n-1) 
+
+'''
+
+def a_sum(a: list[int]) -> int:
+    if not a:
+        return 0
+    return a_sum(a[:-1]) + a[-1]
+'''
+
+a_sum([10, 20, 30]) -> 60
+  |
+  if not [10, 20, 30] - False
+  return a_sum([10, 20]) + 30 -> 30 + 30 = 60
+    |
+    if not [10, 20] - False
+    return a_sum([10]) + 20 -> 10 + 20 = 30 
+      |
+      if not [10] - False
+      return a_sum([]) + 10 -> 0 + 10 = 10 
+        |
+        if not [] - True
+        return 0
+          
+  
+  
+
+'''
+
+
+
+
+print(a_sum([2, 5, 7, 9]))
+
+import calendar
+
+print(calendar.isleap(2024))
+
+'''
+def isleap(year):
+    """Return True for leap years, False for non-leap years."""
+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+'''
+
+'''
+MIN(a) = min(a0, a1, a2, ... , a(n-2), a(n-1))
+MIN(a[1:n]) = min(a1, a2, ... , a(n-2), a(n-1))
+MIN(a) = a0 if len(a) = 1
+MIN([x, y]) = x if x < y else y 
+MIN(a) = MIN([a0, MIN(a[1:n])])
+
+'''
+
+def MIN(a: list[int]) -> int:
+    if len(a) == 1:
+        return a[0]
+    if len(a) == 2:
+        return a[0] if a[0] < a[1] else a[1]
+    return MIN([a[0], MIN(a[1:])])
+
+
+print(MIN([2, 6, 9, 54]))
+
+
+'''
+sum all positive numbers
+
+SUM_POS(a)
+'''
+
+def sum_pos(a: list[int]) -> int:
+    if not a:
+        return 0
+    if a[0] < 0:
+        return sum_pos(a[1:])
+    return sum_pos(a[1:]) + a[0]
+'''
+sum_pos([10, 20, -40, 30]) -> 60
+  |
+  if not a -> False
+  if 10<0 -> False
+  return sum_pos([20, -40, 30]) + 10 -> 50 + 10 = 60
+    |
+    if not a -> False
+    if 20<0 -> False
+    return sum_pos([-40, 30]) +20  -> 30 + 20 = 50
+      |
+      if not [-40, 30] ->  False
+      if -40<0 -> True
+      return sum_pos([30]) -> 30 
+        | 
+        if not [30] -> False
+        if 30<0 -> False
+        return sum_pos([]) + 30 -> 0 + 30 = 30 
+          |
+          if not[] -> True
+          return 0        
+        
+        
+'''
+
+
+
+
+print(sum_pos([10, 20, -40, 30]))
