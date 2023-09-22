@@ -36,8 +36,8 @@ class RecentCounter:
         return len(self.queue)
 ```
 
-* Time Complexity: 0(n)
-* Space Complexity: O(n)
+* Time Complexity: 0(1)
+* Space Complexity: O(1)
 
 
 See other solutions in the Python file.
