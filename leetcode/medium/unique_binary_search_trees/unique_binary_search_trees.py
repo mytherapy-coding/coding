@@ -50,4 +50,31 @@ def numTrees3(n: int) -> int:
     return nodes(n)
 
 
-print(numTrees3(3))
+def mycache(compute):
+    d = {}
+
+    def cache_compute(n):
+        if n in d:
+            return d[n]
+        d[n] = compute(n)
+        return d[n]
+
+    return cache_compute
+
+
+def numTrees4(n: int) -> int:
+    @mycache
+    def nodes(n: int) -> int:
+        if n == 1:
+            return 1
+        if n == 0:
+            return 1
+        total = 0
+        for k in range(n):
+            total += nodes(k) * nodes(n - k - 1)
+        return total
+
+    return nodes(n)
+
+
+print(numTrees4(3))
