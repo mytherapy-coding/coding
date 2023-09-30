@@ -29,11 +29,22 @@ Output: false
 ### Solution
 
 ```py
+def leafSimilar(root1: TreeNode | None, root2: TreeNode | None) -> bool:
+    def traverse(root: TreeNode | None):
+        if not root:
+            return
+        if not root.left and not root.right:
+            yield root.val
+            return
+        yield from traverse(root.left)
+        yield from traverse(root.right)
+
+    return all(x == y for x, y in zip_longest(traverse(root1), traverse(root2)))
 
 ```
 
-* Time Complexity: 0()
-* Space Complexity: O()
+* Time Complexity: 0(n)
+* Space Complexity: O(n)
 
 
 See other solutions in the Python file.
