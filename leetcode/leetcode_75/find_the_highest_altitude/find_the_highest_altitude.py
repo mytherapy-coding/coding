@@ -10,7 +10,7 @@ def largestAltitude0(gain: list[int]) -> int:
     return max(altitudes)
 
 
-def largestAltitude1(gain: list[int]) -> int:
+def largestAltitude1(gain: list[int]) -> int:q
     def sum_alt():
         sum_altutude = 0
         yield sum_altutude

@@ -31,9 +31,9 @@ Explanation: There are 3 equal row and column pairs:
 
 ```py
 def equalPairs(grid: list[list[int]]) -> int:
-    counter1 = Counter(tuple(row) for row in grid)
-    counter2 = Counter(tuple(row[i] for row in grid) for i in range(len(grid)))
-    return sum(counter2[k] * counter1[k] for k in counter1)
+    count1 = Counter(tuple(row) for row in grid)
+    return sum(count1[tuple(row[i] for row in grid)] for i in range(len(grid)))
+
 ```
 
 * Time Complexity: 0(n^2) 
