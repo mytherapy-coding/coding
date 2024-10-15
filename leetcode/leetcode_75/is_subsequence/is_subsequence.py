@@ -1,5 +1,6 @@
 import collections
 
+
 def isSubsequence(s: str, t: str) -> bool:
     i = 0
     for x in t:
@@ -23,9 +24,10 @@ def isSubsequence2(s: str, t: str) -> bool:
     t_letters = collections.deque(t)
     while s_letters and t_letters:
         if s_letters[0] == t_letters[0]:
-           s_letters.popleft()
+            s_letters.popleft()
         t_letters.popleft()
     return not s_letters
+
 
 def isSubsequence3(s: str, t: str, ) -> bool:
     def check(s: str, t: str):
@@ -40,15 +42,15 @@ def isSubsequence3(s: str, t: str, ) -> bool:
     return check(s, t)
 
 
-def isSubsequence4(s: str, t: str, ) -> bool:
+def isSubsequence4(s: str, t: str) -> bool:
     def check(i: int, j: int) -> bool:
         if i == len(s):
             return True
         if j == len(t):
             return False
         if s[i] == t[j]:
-            return check(i+1, j+1)
-        return check(i, j+1)
+            return check(i + 1, j + 1)
+        return check(i, j + 1)
 
     return check(0, 0)
 
@@ -64,3 +66,8 @@ def isSubsequence5(s: str, t: str) -> bool:
 
     return check(s, t)
 
+
+s = "abc"
+t = "ahbgdc"
+
+print(isSubsequence(s, t))
