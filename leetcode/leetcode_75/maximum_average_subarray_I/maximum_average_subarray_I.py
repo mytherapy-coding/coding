@@ -36,14 +36,40 @@ def findMaxAverage2(nums: list[int], k: int) -> float:
 
 
 def findMaxAverage3(nums: list[int], k: int) -> float:
+    window = deque()
+    win_sum = 0
+    win_max = float('-inf')
+    for num in nums:
+        window.append(num)
+        win_sum += num
+        if len(window) > k:
+            win_sum -= window.popleft()
+        if len(window) == k:
+            win_max = max(win_max, win_sum)
+
+    return win_max / k
+
+
+def findMaxAverage4(nums: list[int], k: int) -> float:
     win_sum = 0
     win_max = float('-inf')
     for i, num in enumerate(nums):
         win_sum += num
         if i >= k:
             win_sum -= nums[i - k]
-        if i >= k-1:
+        if i >= k - 1:
             win_max = max(win_max, win_sum)
+
+    return win_max / k
+
+
+def findMaxAverage5(nums: list[int], k: int) -> float:
+    win_sum = sum(nums[i] for i in range(k))
+    win_max = win_sum
+
+    for i in range(k, len(nums)):
+        win_sum += nums[i] - nums[i - k]
+        win_max = max(win_max, win_sum)
 
     return win_max / k
 
@@ -58,4 +84,4 @@ print(findMaxAverage2(nums, k))
 
 nums = [1, 12, -5, -6, 50, 3]
 k = 4
-print(findMaxAverage3(nums, k))
+print(findMaxAverage5(nums, k))

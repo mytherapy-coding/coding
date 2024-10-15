@@ -60,3 +60,14 @@ print(fib1(30))
 print(fib2(30))
 print(fib3(30))
 print(fib4(30))
+
+
+def fib_generator():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a+b
+
+fib_sequance = fib_generator()
+for _ in range(10):
+    print(next(fib_sequance))
