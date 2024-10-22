@@ -2,11 +2,13 @@ from collections import Counter
 
 def hasDuplicate(nums: list[int]) -> bool:
     
-        d = Counter()
+        unique = set()
         for v in nums:
-                d[v] += 1
-                if d[v] == 2:
+                if v in unique:
                         return True
+                unique.add(v)
+
+        return False
         
 
 print(hasDuplicate([1,2,2,5,7,5]))
