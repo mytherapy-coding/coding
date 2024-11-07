@@ -55,6 +55,7 @@ def flatten2(nested_list, res=None):
             res.append(num)
     return res
 
+print()
 
 nested_list = [1, 3, 4, 5, [7, 3]]
 print(flatten2(nested_list))
@@ -80,3 +81,26 @@ print(flat1)
 
 flat2 = [item for item in flatten_generator(nested_list1)]
 print(flat2)
+
+print()
+
+def flatten_list(nested_list):
+    def helper(current_list):
+        for item in current_list:
+            if isinstance(item, list):
+                yield from helper(item)  # Recursively yield items from sublist
+            else:
+                yield item  # Yield the individual element
+
+    return list(helper(nested_list))  # Convert generator to a list for the final result
+
+# Example usage
+nested_list1 = [1, [2, [3, 4], 5], 6, [7, 8]]
+nested_list2 = [[1, 2], [3, [4, 5]], 6]
+
+# Collect the generator output into a list for printing
+res1 = flatten_list(nested_list1)
+res2 = flatten_list(nested_list2)
+
+print(res1)  # Output: [1, 2, 3, 4, 5, 6, 7, 8]
+print(res2)  # Output: [1, 2, 3, 4, 5, 6]
