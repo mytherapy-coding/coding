@@ -1,0 +1,47 @@
+'''
+1. Два Counters
+2. Два dict’s
+3. Как (2), но использовать get(x,0)
+4. Как (2), но используем setdefault(x, 0)
+5. Два defaultdict
+
+6. Sort две строки + while-loop i,j.
+7. Как 6, но вместо индексов использовать два итератора 🤣🤣🤣🤣
+8. Как 6, но один for-loop бежит по первой строке, а внутри индекс или итератор бежит по второй строке.
+
+9. Цикл по одной строке, и удаление найденных символов и другой строки. Кстати удалить можно за О(1). А как искать быстро? А как сделать и то и то быстро?
+
+10. For-loop по одной строке, удаляем символы из Counter второй строки. Какой Time Complexity?
+'''
+from collections import Counter
+
+def canconstruct(ransom_note: str, magazine: str) -> bool:
+    ransom_count = Counter(ransom_note)
+    magazine_count = Counter(magazine)
+    
+    # Print statements to display the counts
+    print("ransom_count =", ransom_count)
+    print("magazine_count =", magazine_count)
+    print("ransom_count =", list(ransom_count))
+    print("magazine_count =", dict(magazine_count))
+    
+    # Check if each character in ransom_note can be covered by magazine_count
+    for char, count in ransom_count.items():
+        if magazine_count[char] < count:
+            return False
+    return True
+
+# Example usage
+ransom_note = "aa"
+magazine = "aab"
+print(canconstruct(ransom_note, magazine))  # Expected output: True
+print(canconstruct(ransom_note = "a", magazine = "b"))
+print(canconstruct(ransom_note = "aa", magazine = "ab"))
+print(canconstruct(ransom_note = "aa", magazine = "aab"))
+
+
+
+
+
+
+
