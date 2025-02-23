@@ -18,8 +18,8 @@ def string_ends_with1(string: str, ending: str) -> bool:
     return string.endswith(ending)
 ```
 
-* Time Complexity: O(n)
-* Space Complexity: O(1) 
+* Time Complexity: $\mathcal{O}(n)$
+* Space Complexity: $\mathcal{O}(1)$
 
 Where n is the size of `ending`.
 
