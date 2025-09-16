@@ -57,7 +57,7 @@ def productExceptSelf4(nums: list[int]) -> list[int]:
     return [x * y for x, y in zip(heads, tails)]
 
 
-'''
+"""
 nums =  [1, 2, 3, 4, 5,  6]
 heads = [1, 1, 2, 6, 24, 120]
 heads[0] = 1
@@ -70,7 +70,7 @@ tails = [720, 360, 120, 30,  6,  1]
 tails[len(nums)-1] = 1
 tails[i] = prod(nums[i+1:])
 tails[i] = nums[i+1] * tails[i+1]
-'''
+"""
 
 
 def productExceptSelf5(nums):

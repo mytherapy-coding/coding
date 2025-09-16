@@ -15,20 +15,22 @@ class MedianFinder1:
             return self.nums[len(self.nums) // 2]
         else:
             # [10, 20, 30, 40] = 25
-            return (self.nums[len(self.nums) // 2] + self.nums[len(self.nums) // 2 - 1]) / 2
+            return (
+                self.nums[len(self.nums) // 2] + self.nums[len(self.nums) // 2 - 1]
+            ) / 2
 
     def __repr__(self) -> str:
-        return f'{type(self).__qualname__}({self.nums})'
+        return f"{type(self).__qualname__}({self.nums})"
 
 
 class MedianFinder2:
     def __init__(self):
         self.small = []  # Max Heap (-)
         self.large = []  # Min Heap
-        '''
+        """
         max(self.small) <= min(self.large) 
         abs(len(self.small) - len(self.large)) <= 1       
-        '''
+        """
 
     def addNum(self, num: int) -> None:
         heapq.heappush(self.large, num)
@@ -49,7 +51,7 @@ class MedianFinder2:
             return (self.large[0] - self.small[0]) / 2
 
     def __repr__(self) -> str:
-        return f'{type(self).__qualname__}({self.small}, {self.large})'
+        return f"{type(self).__qualname__}({self.small}, {self.large})"
 
 
 def test():

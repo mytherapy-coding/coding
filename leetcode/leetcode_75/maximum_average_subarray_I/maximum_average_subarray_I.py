@@ -2,9 +2,9 @@ from collections import deque
 
 
 def findMaxAverage0(nums: list[int], k: int) -> float:
-    window_max = float('-inf')
+    window_max = float("-inf")
     for i in range(len(nums) - k + 1):
-        window_k = nums[i:i + k]
+        window_k = nums[i : i + k]
         window_sum = sum(window_k)
         window_max = max(window_sum, window_max)
     return window_max / k
@@ -38,7 +38,7 @@ def findMaxAverage2(nums: list[int], k: int) -> float:
 def findMaxAverage3(nums: list[int], k: int) -> float:
     window = deque()
     win_sum = 0
-    win_max = float('-inf')
+    win_max = float("-inf")
     for num in nums:
         window.append(num)
         win_sum += num
@@ -52,7 +52,7 @@ def findMaxAverage3(nums: list[int], k: int) -> float:
 
 def findMaxAverage4(nums: list[int], k: int) -> float:
     win_sum = 0
-    win_max = float('-inf')
+    win_max = float("-inf")
     for i, num in enumerate(nums):
         win_sum += num
         if i >= k:

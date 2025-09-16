@@ -5,7 +5,7 @@ class TreeNode:
         self.right = right
 
     def __repr__(self):
-        return f'{id(self)}'
+        return f"{id(self)}"
 
 
 def DFS(root: TreeNode | None, parent: TreeNode | None, d: dict[TreeNode, TreeNode]):
@@ -25,7 +25,9 @@ def depth(cur: TreeNode | None, d: dict[TreeNode, TreeNode]) -> int:
     return count
 
 
-def lowestCommonAncestor(root: TreeNode | None, p: TreeNode | None, q: TreeNode) -> TreeNode | None:
+def lowestCommonAncestor(
+    root: TreeNode | None, p: TreeNode | None, q: TreeNode
+) -> TreeNode | None:
     d = {}
     DFS(root, None, d)
 
@@ -47,7 +49,9 @@ def lowestCommonAncestor(root: TreeNode | None, p: TreeNode | None, q: TreeNode)
 
 
 def test():
-    root = TreeNode(30, TreeNode(50, None, TreeNode(60)), TreeNode(90, TreeNode(10), TreeNode(70)))
+    root = TreeNode(
+        30, TreeNode(50, None, TreeNode(60)), TreeNode(90, TreeNode(10), TreeNode(70))
+    )
     lca = lowestCommonAncestor(root, root.left, root.right.right)
     print(lca.val)
 

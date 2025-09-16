@@ -27,7 +27,9 @@ def findTheDifference2(s: str, t: str) -> str:
 def findTheDifference3(s: str, t: str) -> str:
     ordered_s = sorted(s)
     ordered_t = sorted(t)
-    return next((b for a, b in zip(itertools.chain(ordered_s, [None]), ordered_t) if a != b))
+    return next(
+        (b for a, b in zip(itertools.chain(ordered_s, [None]), ordered_t) if a != b)
+    )
 
 
 def findTheDifference4(s: str, t: str) -> str:

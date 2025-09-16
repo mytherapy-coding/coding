@@ -33,7 +33,7 @@ def remove_smallest4(numbers: list[float]) -> list[float]:
         return []
     min_num = min(numbers)
     min_index = numbers.index(min_num)
-    return numbers[:min_index] + numbers[min_index + 1:]
+    return numbers[:min_index] + numbers[min_index + 1 :]
 
 
 def remove_smallest5(numbers: list[float]) -> list[float]:
@@ -44,7 +44,7 @@ def remove_smallest5(numbers: list[float]) -> list[float]:
         if num < min_num:
             min_num = num
     k = numbers.index(min_num)
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest6(numbers: list[float]) -> list[float]:
@@ -56,7 +56,7 @@ def remove_smallest6(numbers: list[float]) -> list[float]:
         if num < min_num:
             min_num = num
             k = i
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest7(numbers: list[float]) -> list[float]:
@@ -68,7 +68,7 @@ def remove_smallest7(numbers: list[float]) -> list[float]:
         if num < min_num:
             min_num = num
             k = i
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest8(numbers: list[float]) -> list[float]:
@@ -78,7 +78,7 @@ def remove_smallest8(numbers: list[float]) -> list[float]:
     for i, num in enumerate(numbers):
         if num < numbers[k]:
             k = i
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest9(numbers: list[float]) -> list[float]:
@@ -88,29 +88,29 @@ def remove_smallest9(numbers: list[float]) -> list[float]:
     for i in range(len(numbers)):
         res.append((numbers[i], i))
     _, k = min(res)
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest10(numbers: list[float]) -> list[float]:
     if not numbers:
         return []
     _, k = min([(numbers[i], i) for i in range(len(numbers))])
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest11(numbers: list[float]) -> list[float]:
     _, k = min((numbers[i], i) for i in range(len(numbers))) if numbers else (0, 0)
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest12(numbers: list[float]) -> list[float]:
     _, k = min(((numbers[i], i) for i in range(len(numbers))), default=(0, 0))
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest13(numbers: list[float]) -> list[float]:
     _, k = min(((num, i) for i, num in enumerate(numbers)), default=(0, 0))
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest14(numbers: list[float]) -> list[float]:
@@ -118,38 +118,38 @@ def remove_smallest14(numbers: list[float]) -> list[float]:
         return t[1]
 
     k, _ = min(enumerate(numbers), default=(0, 0), key=get_key)
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest15(numbers: list[float]) -> list[float]:
     k, _ = min(enumerate(numbers), default=(0, 0), key=lambda t: t[1])
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest16(numbers: list[float]) -> list[float]:
     zipped = zip(numbers, range(len(numbers)))
     _, k = min(zipped, default=(0, 0))
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest17(numbers: list[float]) -> list[float]:
     _, k = min(zip(numbers, range(len(numbers))), default=(0, 0))
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest18(numbers: list[float]) -> list[float]:
     k: int = min(range(len(numbers)), key=lambda i: numbers[i], default=0)
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest19(numbers: list[float]) -> list[float]:
     k = min(range(len(numbers)), default=0, key=numbers.__getitem__)
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def remove_smallest20(numbers: list[float]) -> list[float]:
     k, _ = min(enumerate(numbers), default=(0, 0), key=operator.itemgetter(1))
-    return numbers[:k] + numbers[k + 1:]
+    return numbers[:k] + numbers[k + 1 :]
 
 
 def tests_remove_smallest():
@@ -191,7 +191,9 @@ def tests_remove_smallest():
     for f in tested_funcs:
         for numbers, expected in tests:
             computed = f(numbers)
-            assert computed == expected, f'failed test on {f.__name__}({numbers=}): {computed}, {expected=}'
+            assert (
+                computed == expected
+            ), f"failed test on {f.__name__}({numbers=}): {computed}, {expected=}"
 
     print("end of tests")
 

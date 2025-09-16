@@ -1,4 +1,4 @@
-'''
+"""
 GCD(a, b) - greatest common divider
 c = GCD(a, b) - max divider
 a%c == 0 and a%b == 0
@@ -17,11 +17,13 @@ b = t*a + b%a
 
 gcd(b%a, a) == gcd(a, b)
 
-'''
+"""
+
 
 def gcd(a, b):
     if b == 0:
         return a
-    return gcd(b, a%b)
+    return gcd(b, a % b)
+
 
 print(gcd(15, 5))

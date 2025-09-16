@@ -4,7 +4,7 @@ class ListNode:
         self.next = next
 
     def __str__(self):
-        return f'{self.val} -> {self.next}'
+        return f"{self.val} -> {self.next}"
 
 
 def list_to_linked(nums: list) -> ListNode | None:
@@ -41,11 +41,12 @@ def tests():
 
 # tests()
 
+
 def oddEvenList2(head: ListNode | None) -> ListNode | None:
     if not head:
         return None
-    even_last: ListNode|None = None
-    odd_last: ListNode|None = None
+    even_last: ListNode | None = None
+    odd_last: ListNode | None = None
     even_head = head
     odd_head = head.next
     while head:

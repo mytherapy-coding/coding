@@ -21,9 +21,9 @@ print(sum(values))
 print(reduce(operator.add, values, 0))
 print(reduce(operator.mul, range(1, 6)))
 
-print(reduce(operator.mul, [2]*64))
+print(reduce(operator.mul, [2] * 64))
 print(2**64)
-print(functools.reduce(operator.mul, [2]*64))
+print(functools.reduce(operator.mul, [2] * 64))
 
 print(reduce(operator.mul, values))
 print(math.prod(values))

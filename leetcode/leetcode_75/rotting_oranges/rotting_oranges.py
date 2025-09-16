@@ -9,11 +9,15 @@ def orangesRotting(grid: list[list[int]]) -> int:
         for x in range(len(grid[y])):
             if grid[y][x] != 0:
                 key = (y, x)
-                count +=1
+                count += 1
                 if grid[y][x] == 2:
                     starts.add(key)
                 for y1, x1 in (y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1):
-                    if 0 <= y1 < len(grid) and 0 <= x1 < len(grid[y]) and grid[y1][x1] != 0:
+                    if (
+                        0 <= y1 < len(grid)
+                        and 0 <= x1 < len(grid[y])
+                        and grid[y1][x1] != 0
+                    ):
                         key1 = (y1, x1)
                         neighbors[key].add(key1)
     print(neighbors)
@@ -37,5 +41,5 @@ def orangesRotting(grid: list[list[int]]) -> int:
     return bfs(starts)
 
 
-grid = [[2,1,1],[0,1,1],[1,0,1]]
+grid = [[2, 1, 1], [0, 1, 1], [1, 0, 1]]
 print(orangesRotting(grid))

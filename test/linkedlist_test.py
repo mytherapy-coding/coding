@@ -4,7 +4,7 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class Node:
     data: any
-    next: 'Node' = None
+    next: "Node" = None
 
     def __len__(self):
         head: Node = self
@@ -19,7 +19,10 @@ class Node:
             while head is not None:
                 yield head.data
                 head = head.next
+
         return gen(self)
+
+
 head = Node(100, Node(200, Node(300, Node(400, Node(500)))))
 
 
@@ -30,7 +33,6 @@ def test():
 
     print(list(enumerate(head)))
 
-
     for e in enumerate(head):
         print(e)
 
@@ -40,7 +42,6 @@ def test():
 
     for i in range(10):
         head = Node(i, head)
-
 
     print(head)
     print(list(head))
@@ -59,5 +60,3 @@ def test():
 
 
 test()
-
-

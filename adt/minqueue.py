@@ -18,7 +18,7 @@ class MinQeue0:
         return min_item
 
     def __repr__(self):
-        return f'{type(self).__qualname__}({self.items})'
+        return f"{type(self).__qualname__}({self.items})"
 
     def __len__(self):
         return len(self.items)
@@ -33,6 +33,7 @@ class MinQeue0:
         if not self:
             raise StopIteration()
         return self.remove_min()
+
 
 class MinQeue1:
     def __init__(self, seq=()):
@@ -61,7 +62,7 @@ class MinQeue1:
         return min_item
 
     def __repr__(self):
-        return f'{type(self).__qualname__}({self.items})'
+        return f"{type(self).__qualname__}({self.items})"
 
     def __len__(self):
         return len(self.items)
@@ -98,7 +99,7 @@ class MinQeue2:
         return self.items.pop()
 
     def __repr__(self):
-        return f'{type(self).__qualname__}({self.items})'
+        return f"{type(self).__qualname__}({self.items})"
 
     def __len__(self):
         return len(self.items)
@@ -127,7 +128,6 @@ class MinQueue3:
         self.items.extend(iterable)
         heapq.heapify(self.items)
 
-
     def add(self, x):
         heapq.heappush(self.items, x)
 
@@ -138,7 +138,7 @@ class MinQueue3:
         return heapq.heappop(self.items)
 
     def __repr__(self):
-        return f'{type(self).__qualname__}({self.items})'
+        return f"{type(self).__qualname__}({self.items})"
 
     def __len__(self):
         return len(self.items)
@@ -166,20 +166,21 @@ def mysorted(values, mkqueue=MinQeue0):
 def test():
     for min_queue in MinQeue0, MinQeue1, MinQeue2, MinQueue3:
         que = min_queue([20, 10, 30, 20])
-        print('queue: ', que)
+        print("queue: ", que)
         for _ in range(2):
-            print('get:   ', que.get_min())
-            print('remove:', que.remove_min())
+            print("get:   ", que.get_min())
+            print("remove:", que.remove_min())
         que.add(5)
-        print('queue: ', que)
-        print('get:   ', que.get_min())
+        print("queue: ", que)
+        print("get:   ", que.get_min())
         for _ in range(3):
-            print('remove:', que.remove_min())
+            print("remove:", que.remove_min())
 
         print()
 
+
 def test1():
-    values = [70,50,30]
+    values = [70, 50, 30]
     expected = sorted(values)
     print(expected)
     print()
@@ -187,11 +188,6 @@ def test1():
         print(mysorted(values, min_queue))
 
 
-
-
-
-
 test()
 print()
 test1()
-

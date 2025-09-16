@@ -1,7 +1,9 @@
 import itertools
 
 
-def findMissingRanges0(nums: list[int], lower: int, upper: int) -> list[tuple[int, int]]:
+def findMissingRanges0(
+    nums: list[int], lower: int, upper: int
+) -> list[tuple[int, int]]:
     start = lower
     gaps = []
     for num in nums + [upper + 1]:  # O(n)
@@ -11,7 +13,9 @@ def findMissingRanges0(nums: list[int], lower: int, upper: int) -> list[tuple[in
     return gaps
 
 
-def findMissingRanges1(nums: list[int], lower: int, upper: int) -> list[tuple[int, int]]:
+def findMissingRanges1(
+    nums: list[int], lower: int, upper: int
+) -> list[tuple[int, int]]:
     gaps = []
     nums = [lower - 1] + nums + [upper + 1]
     for i in range(1, len(nums)):
@@ -22,7 +26,9 @@ def findMissingRanges1(nums: list[int], lower: int, upper: int) -> list[tuple[in
     return gaps
 
 
-def findMissingRanges2(nums: list[int], lower: int, upper: int) -> list[tuple[int, int]]:
+def findMissingRanges2(
+    nums: list[int], lower: int, upper: int
+) -> list[tuple[int, int]]:
     gaps = []
     for num, num0 in zip(nums + [upper + 1], [lower - 1] + nums):
         if num > num0 + 1:
@@ -30,8 +36,14 @@ def findMissingRanges2(nums: list[int], lower: int, upper: int) -> list[tuple[in
     return gaps
 
 
-def findMissingRanges3(nums: list[int], lower: int, upper: int) -> list[tuple[int, int]]:
-    return [(num0 + 1, num - 1) for num, num0 in zip(nums + [upper + 1], [lower - 1] + nums) if num > num0 + 1]
+def findMissingRanges3(
+    nums: list[int], lower: int, upper: int
+) -> list[tuple[int, int]]:
+    return [
+        (num0 + 1, num - 1)
+        for num, num0 in zip(nums + [upper + 1], [lower - 1] + nums)
+        if num > num0 + 1
+    ]
 
 
 def findMissingRanges(nums: list[int], lower: int, upper: int) -> list[tuple[int, int]]:

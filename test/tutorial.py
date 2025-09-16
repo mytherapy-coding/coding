@@ -6,13 +6,13 @@ friends2 = friend.copy()
 
 # guessing game
 
-secret_word = 'giraffe'
-guess = ''
+secret_word = "giraffe"
+guess = ""
 guess_count = 0
 guess_limit = 3
 out_of_guess = False
 
-'''
+"""
 while guess != secret_word and not out_of_guess:
     if guess_count < guess_limit:
         guess = input("ENTER GUESS: ")
@@ -24,7 +24,7 @@ if out_of_guess:
     print("Out of guesses, YOU LOSE")
 else:
     print("You win")
-'''
+"""
 
 
 def raise_to_power(base_num, pow_num):
@@ -35,4 +35,3 @@ def raise_to_power(base_num, pow_num):
 
 
 print(raise_to_power(2, 3))
-

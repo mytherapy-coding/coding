@@ -8,7 +8,7 @@ class TreeNode:
         self.right = right
 
 
-def dfs(root: TreeNode|None):
+def dfs(root: TreeNode | None):
     if not root:
         return
     print(root.val)
@@ -48,7 +48,8 @@ def bfs(root: TreeNode | None):
 
     return res
 
-t = ['hello', 5]
+
+t = ["hello", 5]
 name, age = t
 print(t)
 print(name, age)
@@ -59,8 +60,6 @@ print(len(q))
 name, age = q.popleft()
 print(name, age)
 print(q)
-
-
 
 
 def test():

@@ -45,7 +45,7 @@ def superPow3(a: int, b: list[int]) -> int:
     return powm(a % M, b) % M
 
 
-'''
+"""
 let a = 2^30 
 let b = 10^2000
 len(b) = 2000
@@ -56,7 +56,7 @@ a^b = (2^30)^(10^2000)
 2^20 ~~ 10^6
 2^30 ~~ 10^9
 a^b = (10^9)^(10^2000) = 10^(10*10^2000) = 10^(10^2001) 
-'''
+"""
 print(superPow2(2, [1, 0]))
 x = 1234567890987654321234567890987654
 print(x % 1337)
@@ -74,9 +74,9 @@ print((x * x) % 1337)
 print("--------")
 print(superPow3(2, [1, 0]))
 
-'''
+"""
 (x*y) mod m = ((x mod m) * (y mod m)) mod m 
 (x+y) mod m = ((x mod m) + (y mod m)) mod m 
 (x^z) mod m = ((x mod m) ^ z) mod m
 pow(a, b)%m = pow(a%m, b)%m
-'''
+"""

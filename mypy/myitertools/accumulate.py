@@ -54,8 +54,14 @@ for acc in accumulate, itertools.accumulate:
     print(list(acc(values, operator.add)))
     print(list(acc(values, operator.mul)))
     print(list(acc(values, min)))
-    print(list(acc([], min, )))
+    print(
+        list(
+            acc(
+                [],
+                min,
+            )
+        )
+    )
     print(list(acc([], min, initial=0)))
     print(list(acc(values, operator.add, initial=1000)))
     print(list(acc(values)))
-

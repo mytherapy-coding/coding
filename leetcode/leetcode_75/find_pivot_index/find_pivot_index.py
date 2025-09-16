@@ -3,13 +3,15 @@ import itertools
 
 def pivotIndex(nums: list[int]) -> int:
     for i in range(len(nums)):
-        if sum(nums[:i]) == sum(nums[i + 1:]):
+        if sum(nums[:i]) == sum(nums[i + 1 :]):
             return i
     return -1
 
 
 def pivotIndex1(nums: list[int]) -> int:
-    return next((i for i in range(len(nums)) if sum(nums[:i]) == sum(nums[i + 1:])), -1)
+    return next(
+        (i for i in range(len(nums)) if sum(nums[:i]) == sum(nums[i + 1 :])), -1
+    )
 
 
 def pivotIndex2(nums: list[int]) -> int:
@@ -23,7 +25,9 @@ def pivotIndex2(nums: list[int]) -> int:
 
 def pivotIndex3(nums: list[int]) -> int:
     full = sum(nums)
-    return next((i for i in range(len(nums)) if 2 * sum(nums[:i]) + nums[i] == full), -1)
+    return next(
+        (i for i in range(len(nums)) if 2 * sum(nums[:i]) + nums[i] == full), -1
+    )
 
 
 def pivotIndex4(nums: list[int]) -> int:
@@ -63,7 +67,14 @@ def pivotIndex6(nums: list[int]) -> int:
 
 def pivotIndex7(nums: list[int]) -> int:
     full = sum(nums)
-    return next((i for i, left in enumerate(itertools.accumulate(nums)) if 2 * left - nums[i] == full), -1)
+    return next(
+        (
+            i
+            for i, left in enumerate(itertools.accumulate(nums))
+            if 2 * left - nums[i] == full
+        ),
+        -1,
+    )
 
 
 print(pivotIndex7([1, 7, 3, 6, 5, 6]))

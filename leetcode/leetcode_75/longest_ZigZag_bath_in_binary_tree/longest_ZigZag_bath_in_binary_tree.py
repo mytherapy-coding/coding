@@ -17,18 +17,15 @@ def longest_zigzag_at(root: TreeNode | None, direction: bool) -> int:
 
 def maxDepth(root: TreeNode | None) -> int:
     if not root:
-        return float('-inf')
-    return max(maxDepth(root.left), maxDepth(root.right), longest_zigzag_at(root, direction=True),
-               longest_zigzag_at(root, direction=False))
+        return float("-inf")
+    return max(
+        maxDepth(root.left),
+        maxDepth(root.right),
+        longest_zigzag_at(root, direction=True),
+        longest_zigzag_at(root, direction=False),
+    )
 
 
 root = TreeNode(
-    50,
-    TreeNode(
-        20,
-        TreeNode(70),
-        TreeNode(30)),
-    TreeNode(
-        80,
-        TreeNode(70))
+    50, TreeNode(20, TreeNode(70), TreeNode(30)), TreeNode(80, TreeNode(70))
 )

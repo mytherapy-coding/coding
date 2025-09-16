@@ -4,7 +4,7 @@ def order0(sentence: str) -> str:
             if ch.isdigit():
                 return int(ch)
 
-    res: list[str|None] = [None] * 9
+    res: list[str | None] = [None] * 9
     for word in sentence.split():
         index = getdigit(word)
         res[index - 1] = word
@@ -16,7 +16,7 @@ def order1(sentence: str) -> str:
     def getdigit(word: str) -> int:
         return next(int(ch) for ch in word if ch.isdigit())
 
-    res: list[str|None] = [None] * 9
+    res: list[str | None] = [None] * 9
     for word in sentence.split():
         res[getdigit(word) - 1] = word
     return " ".join(word for word in res if word is not None)
@@ -57,11 +57,17 @@ def order5(sentence: str) -> str:
 
 
 def order6(sentence: str) -> str:
-    return " ".join(sorted(sentence.split(), key=lambda word: next(ch for ch in word if ch.isdigit())))
+    return " ".join(
+        sorted(
+            sentence.split(), key=lambda word: next(ch for ch in word if ch.isdigit())
+        )
+    )
 
 
 def order7(sentence: str) -> str:
-    return " ".join(sorted(sentence.split(), key=lambda word: next(filter(str.isdigit, word))))
+    return " ".join(
+        sorted(sentence.split(), key=lambda word: next(filter(str.isdigit, word)))
+    )
 
 
 def test():

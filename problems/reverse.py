@@ -45,6 +45,7 @@ print()
 
 def reversed_array5(data):
     from collections import deque
+
     values = deque()
     for e in data:
         values.append(e)
@@ -80,9 +81,9 @@ class Mystack:
         return len(self.elems)
 
 
-'''
+"""
 assume I have mystack() with following methods push, pop and empty 
-'''
+"""
 print()
 
 

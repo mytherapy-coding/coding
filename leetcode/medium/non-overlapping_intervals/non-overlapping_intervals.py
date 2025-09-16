@@ -2,19 +2,19 @@ import operator
 
 
 def eraseOverlapIntervals0(intervals: list[list[int]]) -> int:
-    '''
-        [[1,2], [1,3], [2,3],[3,4],[3, 5]]
-         1.       2.     1.    1.     1
+    """
+    [[1,2], [1,3], [2,3],[3,4],[3, 5]]
+     1.       2.     1.    1.     1
 
-         [[1,2],  -- , [2,3],[3,4],[3, 5]]
-            0.           0.    1.     1
+     [[1,2],  -- , [2,3],[3,4],[3, 5]]
+        0.           0.    1.     1
 
-        [[1,2],  -- , [2,3], [3,4],  -- ]
-            0.           0.    0
+    [[1,2],  -- , [2,3], [3,4],  -- ]
+        0.           0.    0
 
-        10, 20.   15, 30
-           1       1
-    '''
+    10, 20.   15, 30
+       1       1
+    """
 
     # [[1,2], [1,3], [2,3],[3,4],[3, 5]]
     # 1.       2.     1.    1.     1
@@ -28,7 +28,10 @@ def eraseOverlapIntervals0(intervals: list[list[int]]) -> int:
     count = len(intervals) - len(unique_ivs)
     intervals = unique_ivs
     while intervals:
-        d = {iv1: sum(is_intersect(iv1, iv2) for iv2 in intervals) - 1 for iv1 in intervals}
+        d = {
+            iv1: sum(is_intersect(iv1, iv2) for iv2 in intervals) - 1
+            for iv1 in intervals
+        }
         print(sorted(d.items()))
 
         iv1 = max(intervals, key=d.get)
@@ -50,7 +53,10 @@ def eraseOverlapIntervals1(intervals: list[list[int]]) -> int:
     count = len(intervals) - len(unique_ivs)
     intervals = unique_ivs
     while intervals:
-        d = {iv1: sum(is_intersect(iv1, iv2) for iv2 in intervals) - 1 for iv1 in intervals}
+        d = {
+            iv1: sum(is_intersect(iv1, iv2) for iv2 in intervals) - 1
+            for iv1 in intervals
+        }
         d = {iv: x for iv, x in d.items() if x > 0}
         if not d:
             break
@@ -128,10 +134,38 @@ def eraseOverlapIntervals6(intervals: list[list[int]]) -> int:
 
 
 def tests():
-    intervals = [[40, 70], [56, 80], [63, 87], [-51, 39], [-74, 59], [38, 41], [-49, 17], [6, 57], [36, 85], [-73, 26],
-                 [-6, 70], [15, 70], [66, 78], [37, 87], [79, 96], [46, 97], [36, 49], [-58, 40], [-58, 52], [26, 83],
-                 [-27, 43], [15, 86], [11, 56], [23, 34], [-9, 73], [-95, -75], [2, 30], [-91, 26], [88, 89],
-                 [-83, -43]]
+    intervals = [
+        [40, 70],
+        [56, 80],
+        [63, 87],
+        [-51, 39],
+        [-74, 59],
+        [38, 41],
+        [-49, 17],
+        [6, 57],
+        [36, 85],
+        [-73, 26],
+        [-6, 70],
+        [15, 70],
+        [66, 78],
+        [37, 87],
+        [79, 96],
+        [46, 97],
+        [36, 49],
+        [-58, 40],
+        [-58, 52],
+        [26, 83],
+        [-27, 43],
+        [15, 86],
+        [11, 56],
+        [23, 34],
+        [-9, 73],
+        [-95, -75],
+        [2, 30],
+        [-91, 26],
+        [88, 89],
+        [-83, -43],
+    ]
     print(eraseOverlapIntervals4(intervals))
 
     intervals = [[0, 2], [1, 3], [2, 4], [3, 5], [4, 6]]

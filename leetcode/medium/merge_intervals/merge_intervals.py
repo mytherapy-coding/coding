@@ -15,15 +15,13 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
     return res
 
 
-intervals = [[1,3],[2,6],[8,10],[15,18]]
+intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]
 print(merge(intervals))
-intervals = [[1,4],[4,5]]
+intervals = [[1, 4], [4, 5]]
 print(merge(intervals))
 intervals = []
 print(merge(intervals))
-intervals = [[1,3],[1,6]]
+intervals = [[1, 3], [1, 6]]
 print(merge(intervals))
 intervals = [[1, 6], [2, 3]]
 print(merge(intervals))
-
-

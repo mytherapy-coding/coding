@@ -22,10 +22,9 @@ def test_binom():
         math.comb,
         C,
     ]
-    for n, m in  (200,100), (200, 0), (200,200), (200, 1):
+    for n, m in (200, 100), (200, 0), (200, 200), (200, 1):
         for f in funcs:
-            print(f'{f.__name__}({n},{m})={f(n, m)}')
-
+            print(f"{f.__name__}({n},{m})={f(n, m)}")
 
 
 test_binom()
@@ -41,16 +40,19 @@ def make_binom(N):
 
 def make_binom1(N):
     return [[math.comb(n, m) for m in range(n + 1)] for n in range(N + 1)]
-'''
+
+
+"""
 (a+b)^2 = (a + b)*(a + b) = a^2 +2ab +b^2
 (a+b)^3 = a^3 + 3a^2*b + 3ab^2 +b^3
 C(n, m) = C(n-1, m) + C(n-1, m-1)
-'''
+"""
 
 
 def test_make_binom():
     for mk_binom in make_binom, make_binom:
         for row in mk_binom(10):
             print(*row)
+
 
 test_make_binom()

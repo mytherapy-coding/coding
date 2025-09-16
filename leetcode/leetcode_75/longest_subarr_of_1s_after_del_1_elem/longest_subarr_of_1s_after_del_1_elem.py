@@ -35,15 +35,15 @@ def longestSubarray1(nums: list[int]) -> int:
             count_zeroes -= 1
         assert count_zeroes <= 1
         # assert count_zeroes + sum(nums[j:i + 1]) == i + 1 - j, f'{count_zeroes=}, {nums[j:i + 1]=}, {i + 1 - j}'
-        win_max = max(win_max, len(nums[j:i + 1]) - 1)
+        win_max = max(win_max, len(nums[j : i + 1]) - 1)
     return win_max
 
 
 def test():
     tab = (
-        ([1,1,0,1], 3),
-        ([0,1,1,1,0,1,1,0,1], 5),
-        ([1,1,1], 2),
+        ([1, 1, 0, 1], 3),
+        ([0, 1, 1, 1, 0, 1, 1, 0, 1], 5),
+        ([1, 1, 1], 2),
     )
 
     funcs = (
@@ -53,7 +53,9 @@ def test():
     for func in funcs:
         for nums, expected in tab:
             result = func(nums)
-            assert result == expected, f'{func.__qualname__}({nums}: {result=}, {expected=}'
+            assert (
+                result == expected
+            ), f"{func.__qualname__}({nums}: {result=}, {expected=}"
 
 
 test()

@@ -4,7 +4,7 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class Node:
     data: any
-    next: 'Node' = None
+    next: "Node" = None
 
 
 def appendleft(head: Node, value: any) -> Node:
@@ -117,7 +117,7 @@ def print0(node: Node) -> Node:
         node = node.next
 
 
-print('linked list recursion')
+print("linked list recursion")
 
 head = None
 for value in range(0, 50, 10):
@@ -181,7 +181,7 @@ def map_to(f, head: Node) -> Node:
     return head
 
 
-print('map_to')
+print("map_to")
 print1(map_to(lambda x: 2 * x, head))
 
 
@@ -253,7 +253,7 @@ def pop(head: Node) -> Node:
 print("pop")
 print1(pop(head))
 
-'''
+"""
 accumulate_it
 merge
 remove_all
@@ -273,7 +273,7 @@ def accumulate(f, head) -> Node
 def appendleft_from(head, iterable) -> Node
 def append_from(head, iterable) -> Node
 def yield_all(head)
-'''
+"""
 
 
 def accumulate_it(head: Node, f, initial: any = None) -> Node:
@@ -285,7 +285,8 @@ def accumulate_it(head: Node, f, initial: any = None) -> Node:
     tail = accumulate_it(head.next, f)
     return f(tail, head.data)
 
-'''
+
+"""
 print("accumulate")
 print1(accumulate_it(head, lambda x, y: x + y))
-'''
+"""

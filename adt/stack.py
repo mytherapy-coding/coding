@@ -1,4 +1,4 @@
-'''
+"""
 import collections
 
 
@@ -160,7 +160,8 @@ for x in stack:
     print(x)
 while stack:
     print(stack.pop())
-'''
+"""
+
 
 class Stack:
     def __init__(self):
@@ -184,6 +185,5 @@ print(my_stack.pop())  # Output: 2
 print(my_stack.pop())  # Output: 1
 print(bool(my_stack))  # Output: False
 
-phrase = 'Giraffe Academy'
+phrase = "Giraffe Academy"
 print(phrase[0])
-

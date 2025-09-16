@@ -4,7 +4,7 @@ class ListNode:
         self.next = next
 
     def __str__(self) -> str:
-        return f'{self.val} -> {self.next}'
+        return f"{self.val} -> {self.next}"
 
 
 def linked_to_list(head: ListNode | None) -> list:
@@ -42,6 +42,3 @@ def reverseList2(head: ListNode | None) -> ListNode | None:
 
 
 print(reverseList2(ListNode(10, ListNode(20, ListNode(30)))))
-
-
-

@@ -1,4 +1,6 @@
-def isCovered0(ranges: list[list[int]], left: int, right: int) -> bool:  # O(n log n), space O(n)
+def isCovered0(
+    ranges: list[list[int]], left: int, right: int
+) -> bool:  # O(n log n), space O(n)
     ordered = sorted(ranges)
     covered = left - 1
     for start, end in ordered:
@@ -12,7 +14,9 @@ def isCovered0(ranges: list[list[int]], left: int, right: int) -> bool:  # O(n l
     return covered >= right
 
 
-def isCovered1(ranges: list[list[int]], left: int, right: int) -> bool:  # O((right-left)*n), space - O(1)
+def isCovered1(
+    ranges: list[list[int]], left: int, right: int
+) -> bool:  # O((right-left)*n), space - O(1)
     def covered(x: int) -> bool:  # O(n)
         for start, end in ranges:
             if start <= x <= end:
@@ -25,7 +29,9 @@ def isCovered1(ranges: list[list[int]], left: int, right: int) -> bool:  # O((ri
     return True
 
 
-def isCovered2(ranges: list[list[int]], left: int, right: int) -> bool:  # O((right-left)*n + n log n), space - O(n)
+def isCovered2(
+    ranges: list[list[int]], left: int, right: int
+) -> bool:  # O((right-left)*n + n log n), space - O(n)
     ranges = sorted(ranges)
 
     def covered(x: int, ranges: list[list[int]]) -> bool:  # O(n)
@@ -43,7 +49,9 @@ def isCovered2(ranges: list[list[int]], left: int, right: int) -> bool:  # O((ri
     return True
 
 
-def isCovered3(ranges: list[list[int]], left: int, right: int) -> bool:  # O((right-left)*n)
+def isCovered3(
+    ranges: list[list[int]], left: int, right: int
+) -> bool:  # O((right-left)*n)
     def covered(x: int, ranges: list[list[int]]) -> bool:  # O(n)
         # [[100, 200], [300, 400]]
         return any(True for start, end in ranges if start <= x <= end)  #
@@ -52,8 +60,13 @@ def isCovered3(ranges: list[list[int]], left: int, right: int) -> bool:  # O((ri
     return all(covered(x, ranges) for x in range(left, right + 1))
 
 
-def isCovered4(ranges: list[list[int]], left: int, right: int) -> bool:  # O((right-left) * n)
-    return all(any(True for start, end in ranges if start <= x <= end) for x in range(left, right + 1))
+def isCovered4(
+    ranges: list[list[int]], left: int, right: int
+) -> bool:  # O((right-left) * n)
+    return all(
+        any(True for start, end in ranges if start <= x <= end)
+        for x in range(left, right + 1)
+    )
 
 
 def tests():
@@ -72,7 +85,21 @@ def tests():
         ([[10, 20], [10, 30], [20, 40]], 10, 40, True),
         ([[10, 20], [20, 40]], 10, 40, True),
         ([[10, 20], [22, 40]], 10, 40, False),
-        ([[25, 42], [7, 14], [2, 32], [25, 28], [39, 49], [1, 50], [29, 45], [18, 47]], 15, 38, True)
+        (
+            [
+                [25, 42],
+                [7, 14],
+                [2, 32],
+                [25, 28],
+                [39, 49],
+                [1, 50],
+                [29, 45],
+                [18, 47],
+            ],
+            15,
+            38,
+            True,
+        ),
     ]
 
     funcs = [
@@ -85,7 +112,9 @@ def tests():
     for ranges, left, right, expected in tab:
         for isCovered in funcs:
             result = isCovered(ranges, left, right)
-            assert result == expected, f'{result == expected}: failed on {ranges} {left=} {right=} '
+            assert (
+                result == expected
+            ), f"{result == expected}: failed on {ranges} {left=} {right=} "
 
 
 tests()

@@ -1,4 +1,3 @@
-
 class MaxStack:
     def __init__(self, iterable=None):
         self.elems = []
@@ -206,11 +205,12 @@ def test_stacks():
 
     print("All tests passed!")
 
+
 # Run tests
 test_stacks()
 
 
-'''
+"""
 Implement the container UniqArr:
 add(x) — append value x if it doesn’t exist.
 pop() — remove the last appended value.
@@ -225,7 +225,8 @@ find(x) — return the index of x or throw exception if does exist. Must work in
 
 Past 4: implement:
 popleft() — remove the first element. How to make it working fast with find(x) and a[i] ?
-'''
+"""
+
 
 class UniqArr:
     def __init__(self):
@@ -285,6 +286,7 @@ class UniqArr:
             self.index_map[elem] = i
         return first_elem
 
+
 # Testing UniqArr
 def test_uniq_arr():
     print("Testing UniqArr...")
@@ -312,6 +314,7 @@ def test_uniq_arr():
     assert a == UniqArr([20, 40])
 
     print("All tests passed!")
+
 
 # Run tests
 test_uniq_arr()

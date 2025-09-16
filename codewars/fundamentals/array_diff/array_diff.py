@@ -6,6 +6,7 @@ def array_diff0(a: list, b: list) -> list:
 
     return c
 
+
 def array_diff1(a: list, b: list) -> list:
     c = []
     for x in a:
@@ -30,7 +31,6 @@ def array_diff3(a: list, b: list) -> list:
     return [x for x in a if x not in b]
 
 
-
 tab = (
     ([], [], []),
     ([], [1, 2], []),
@@ -42,4 +42,4 @@ tab = (
 
 for f in array_diff0, array_diff1, array_diff2, array_diff3:
     for a, b, c in tab:
-        assert f(a, b) == c, f'failed test on {f.__name__}({a}, {b}), expected {c}'
+        assert f(a, b) == c, f"failed test on {f.__name__}({a}, {b}), expected {c}"

@@ -5,8 +5,14 @@ class TreeNode:
         self.right = right
 
 
-def count_good(root: TreeNode | None, max_val: int = float('-inf')) -> int:
-    return count_good(root.left, max(root.val, max_val)) + count_good(root.right, max(root.val, max_val)) + (root.val >= max_val) if root else 0
+def count_good(root: TreeNode | None, max_val: int = float("-inf")) -> int:
+    return (
+        count_good(root.left, max(root.val, max_val))
+        + count_good(root.right, max(root.val, max_val))
+        + (root.val >= max_val)
+        if root
+        else 0
+    )
 
 
 root = TreeNode(10, TreeNode(20, TreeNode(30)), TreeNode(5, None, TreeNode(15)))

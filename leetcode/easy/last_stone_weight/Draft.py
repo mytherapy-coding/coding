@@ -5,7 +5,7 @@ def findRelativeRanks(score: list[int]) -> list[str]:
     for x in score:
         ranks.append(ordered.index(x) + 1)
     res = []
-    d = {1: 'Gold Medal', 2: 'Silver Medal', 3: 'Bronze Medal'}
+    d = {1: "Gold Medal", 2: "Silver Medal", 3: "Bronze Medal"}
     for r in ranks:
         if r <= 3:
             res.append(d[r])

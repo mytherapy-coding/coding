@@ -1,8 +1,8 @@
 def compress0(chars: list[str]) -> int:
-    '''
+    """
     Input: chars = ["a","a","b","b","c","c","c"]
     Output: Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
-    '''
+    """
 
     prev_char = chars[0]
     count = 1
@@ -50,7 +50,7 @@ def compress2(chars: list[str]) -> int:
             chars[j] = prev_char
             j += 1
             if count > 1:
-                chars[j:j + len(str(count))] = list(str(count))
+                chars[j : j + len(str(count))] = list(str(count))
                 j += len(str(count))
             prev_char = ch
             count = 1

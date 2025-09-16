@@ -10,16 +10,16 @@ def cycle(iterable):
         for e in saved:
             yield e
 
-
     saved = []
     while True:
         for e in iterable:
             saved.append(e)
 
+
 for mycycle in cycle, itertools.cycle:
     print(mycycle)
     tab = (
-        'Hello',
+        "Hello",
         [10, 20, 30],
         range(3),
         [e for e in range(3)],
@@ -29,4 +29,3 @@ for mycycle in cycle, itertools.cycle:
     )
     for iterable in tab:
         print(list(itertools.islice(mycycle(iterable), 20)))
-

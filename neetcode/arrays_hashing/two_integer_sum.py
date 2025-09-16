@@ -10,4 +10,5 @@ def twoSum(numbers: list[int], target: int):
         if y in d:
             return d[x], d[y]
 
+
 print(twoSum[1, 2, 3, 4, 5])

@@ -1,6 +1,6 @@
 import math
 
-'''
+"""
  S = 1 + 2 + 4 + 8 + 16 +... + 2^H
  S = 1 + 1 + 2 + 4 + 8 + 16 +... + 2^H - 1
  S = 2^H + 2^H - 1
@@ -17,10 +17,10 @@ import math
  log (n + 1) = H + 1
  H = log (n + 1) - 1
  --------------------------
- '''
+ """
 
 print([3, 6, 2, 9, -1, 10])
-'''
+"""
           3
         /   \
        6     2 
@@ -29,14 +29,14 @@ print([3, 6, 2, 9, -1, 10])
 if node is i, node.left is 2i + 1, node.right is 2i +2 
 root is 0
 
-'''
+"""
 
 
 def preorder_print(tree):
     def preorder(i: int):
         if i >= len(tree) or tree[i] == -1:
             return
-        print(tree[i], end=' ')
+        print(tree[i], end=" ")
         preorder(2 * i + 1)
         preorder(2 * i + 2)
 
@@ -47,7 +47,7 @@ def preorder_print(tree):
 preorder_print([3, 6, 2, 9, -1, 10])
 preorder_print([4, 6, 8, 3, 7, -1, 5])
 
-'''
+"""
 given a tree, find the height of the tree 
 
           3
@@ -57,7 +57,7 @@ given a tree, find the height of the tree
     -1    15 -1  -1
     / \   / 
   -1  -1  1  
-'''
+"""
 
 
 # t = [3, 6, 2, -1, 15, -1, -1, -1, -1, 1]
@@ -73,12 +73,12 @@ def tree_height(tree: list) -> int:
     return height(0)
 
 
-print('________')
+print("________")
 print(tree_height([3, 6, 2, 9, -1, 10]))
 print(math.floor(math.log2(1000)))
 print(math.ceil(math.log2(1000)))
 
-'''
+"""
 Problem 1: Given a binary tree. Write a function that computes the sum of all values of the tree.
 
 Problem 2: Given a binary tree. Write a function that computes the maximum value of the tree.
@@ -88,7 +88,7 @@ Problem 3: Find the maximum value path from the root to one of the leafs.
 Problem 4: Compute the weighted sum of all nodes. The node’s weight is its depth (the number of nodes from the root to the node).
 
 Problem 5: Print all nodes that hold the condition: its value equals to the sum of the path from the root to the value (excluding the node itself).
-'''
+"""
 print()
 
 
@@ -109,13 +109,13 @@ def tree_sum(root: TreeNode | None) -> int:
 
 def tree_max(root: TreeNode | None) -> float:
     if not root:
-        return float('-inf')
+        return float("-inf")
     return max(tree_max(root.left), tree_max(root.right), root.val)
 
 
 def max_path(root: TreeNode | None, path: int) -> float:
     if not root:
-        return float('-inf')
+        return float("-inf")
     path += root.val
     if not root.left and not root.right:
         return path
@@ -123,16 +123,8 @@ def max_path(root: TreeNode | None, path: int) -> float:
 
 
 root = TreeNode(
-    50,
-    TreeNode(
-        20,
-        TreeNode(70),
-        TreeNode(30)),
-    TreeNode(
-        80,
-        TreeNode(70))
+    50, TreeNode(20, TreeNode(70), TreeNode(30)), TreeNode(80, TreeNode(70))
 )
-
 
 
 print(max_path(root, path=0))
@@ -172,7 +164,6 @@ print()
 sum_values(root, sum_val=0)
 
 
-
 import collections
 
 
@@ -183,7 +174,7 @@ class TreeNode:
         self.right = right
 
 
-def dfs(root: TreeNode|None):
+def dfs(root: TreeNode | None):
     if not root:
         return
     print(root.val)
@@ -217,8 +208,6 @@ def bfs(root: TreeNode | None):
             nodes_to_visit.append(node.right)
 
 
-
-
 def test():
     root = TreeNode(10, TreeNode(20), TreeNode(30, TreeNode(40), TreeNode(50)))
     dfs(root)
@@ -226,5 +215,6 @@ def test():
     dfs_iterative(root)
     print()
     bfs(root)
+
 
 test()

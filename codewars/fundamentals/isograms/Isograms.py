@@ -44,7 +44,9 @@ def test_isogram():
     for is_isorgam in is_isogram0, is_isogram1, is_isogram2, is_isogram3, is_isogram4:
         for string, expected in tab:
             result = is_isorgam(string)
-            assert result == expected, f'failed on test {is_isorgam.__name__}("{string}")={result}, {expected=}'
+            assert (
+                result == expected
+            ), f'failed on test {is_isorgam.__name__}("{string}")={result}, {expected=}'
 
 
 test_isogram()

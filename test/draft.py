@@ -14,19 +14,19 @@ print(ind)
 ind = nums.index(150)
 print(ind)
 sub_nums = nums[10:15]
-print(sub_nums, f'nums[10:15]')
+print(sub_nums, f"nums[10:15]")
 
 sub_nums2 = nums[11:16]
-print(sub_nums2, f'nums[11:16]')
+print(sub_nums2, f"nums[11:16]")
 
 # Write a function that accepts a list of nums, a number x, and an integer k.
 # It must find the index j of x in the list and return a sub array of size k that starts from the index j in nums.
-print('_________')
+print("_________")
 
 
 def find_subarray(nums, x, k):
     j = nums.index(x)
-    sub_array = nums[j:j+k]
+    sub_array = nums[j : j + k]
     return sub_array
 
 

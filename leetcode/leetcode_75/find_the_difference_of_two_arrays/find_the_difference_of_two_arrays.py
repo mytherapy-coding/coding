@@ -19,12 +19,13 @@ def test():
     funcs = (
         findDifference0,
         findDifference1,
-
     )
     for func in funcs:
         for nums1, nums2, expected in tab:
             result = func(nums1, nums2)
-            assert result == expected, f'{func.__qualname__}({nums1}, {nums2}): {result=}, {expected=}'
+            assert (
+                result == expected
+            ), f"{func.__qualname__}({nums1}, {nums2}): {result=}, {expected=}"
 
 
 test()

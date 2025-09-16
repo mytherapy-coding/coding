@@ -20,12 +20,7 @@ def findCircleNum(isConnected: list[list[int]]) -> int:
     return count
 
 
-
-matrix = [
-    [1, 1, 0],
-    [1, 1, 0],
-    [0, 0, 1]
-]
+matrix = [[1, 1, 0], [1, 1, 0], [0, 0, 1]]
 # matrix[1][0] == 1 if city 1 and 0 are connected directly
 print(matrix)
 print()

@@ -5,7 +5,7 @@ class ListNode:
 
     def __str__(self) -> str:
         # return f'({self.val},{self.next})'
-        return f'{self.val} -> {self.next}'
+        return f"{self.val} -> {self.next}"
 
 
 def linked_list_size(head: ListNode | None) -> int:
@@ -30,13 +30,13 @@ def linked_list_remove(prev_node: ListNode | None) -> None:
     prev_node.next = prev_node.next.next
 
 
-def deleteMiddle(head: ListNode|None) -> ListNode|None:
-    '''
+def deleteMiddle(head: ListNode | None) -> ListNode | None:
+    """
     - count nodes
     - ind_to_del = n//2
     - find a node to delete using this index
     - deletion this node
-    '''
+    """
     size = linked_list_size(head)
     if size <= 1:
         return None

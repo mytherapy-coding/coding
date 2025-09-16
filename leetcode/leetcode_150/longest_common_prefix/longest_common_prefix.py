@@ -4,11 +4,11 @@ def longestCommonPrefix(strs: list[str]) -> str:
         print(t_set)
         if len(t_set) != 1:
             return strs[0][:k]
-    return min(strs, key= lambda w: len(w))
+    return min(strs, key=lambda w: len(w))
 
 
-strs = ["flower","flow","flight"]
+strs = ["flower", "flow", "flight"]
 print(longestCommonPrefix(strs))
 
-strs = ["dog","racecar","car"]
+strs = ["dog", "racecar", "car"]
 print(longestCommonPrefix(strs))

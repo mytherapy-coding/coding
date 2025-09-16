@@ -51,24 +51,35 @@ def points5(games: list[str]) -> int:
 
 
 def points6(games: list[str]) -> int:
-    res = ([int(e) for e in game.split(':')] for game in games)
+    res = ([int(e) for e in game.split(":")] for game in games)
     return sum(3 if x > y else 1 if x == y else 0 for x, y in res)
 
 
 def points7(games: list[str]) -> int:
-    return sum(3 if x > y else 1 if x == y else 0 for x, y in ((int(game[0]), int(game[2])) for game in games))
+    return sum(
+        3 if x > y else 1 if x == y else 0
+        for x, y in ((int(game[0]), int(game[2])) for game in games)
+    )
 
 
 def points8(games: list[str]) -> int:
-    return sum(3 if x > y else 1 if x == y else 0 for x, y in ([int(e) for e in game.split(':')] for game in games))
+    return sum(
+        3 if x > y else 1 if x == y else 0
+        for x, y in ([int(e) for e in game.split(":")] for game in games)
+    )
 
 
 def points9(games: list[str]) -> int:
-    return sum(3 * (x > y) + (x == y) for x, y in ([int(e) for e in game.split(':')] for game in games))
+    return sum(
+        3 * (x > y) + (x == y)
+        for x, y in ([int(e) for e in game.split(":")] for game in games)
+    )
 
 
 def points10(games: list[str]) -> int:
-    return sum(3 * (int(x) > int(y)) + (x == y) for x, y in (game.split(':') for game in games))
+    return sum(
+        3 * (int(x) > int(y)) + (x == y) for x, y in (game.split(":") for game in games)
+    )
 
 
 def points11(games: list[str]) -> int:
@@ -122,8 +133,9 @@ def test_points():
         for games, expected in tab:
             if not is_score_high(games) or f not in skip_if_high_score:
                 result = f(games)
-                assert result == expected, f'test failed on {f.__name__}({games}, {expected=}, {result=}'
+                assert (
+                    result == expected
+                ), f"test failed on {f.__name__}({games}, {expected=}, {result=}"
 
 
 test_points()
-

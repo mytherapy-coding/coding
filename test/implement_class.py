@@ -1,4 +1,4 @@
-'''
+"""
 Implement the following class:
 
 class SumMinStack:
@@ -55,4 +55,4 @@ None 0 None 0
 SumMinStack[5, 10, 7, 10]
 
 The time complexity of all operations except for __str__ and __repr__ must be O(1).
-'''
+"""

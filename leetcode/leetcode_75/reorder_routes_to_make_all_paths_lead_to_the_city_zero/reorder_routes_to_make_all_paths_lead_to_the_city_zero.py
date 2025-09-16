@@ -29,6 +29,7 @@ def minReorder(n: int, connections: list[list[int]]) -> int:
             neighbours[neighbor].remove(city)
             connect.discard((neighbor, city))
             dfs(neighbor)
+
     dfs(0)
     return len(connect)
 
@@ -36,4 +37,4 @@ def minReorder(n: int, connections: list[list[int]]) -> int:
 connections = [[0, 1], [1, 3], [2, 3], [4, 0], [4, 5]]
 n = 6
 count = minReorder(n, connections)
-print(f'{count=}')
+print(f"{count=}")

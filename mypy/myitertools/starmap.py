@@ -21,9 +21,8 @@ for mapper in itertools.starmap, starmap, starmap1:
 
 nums = [-1, 3, 5, 10]
 
-print([n ** 2 for n in nums])
+print([n**2 for n in nums])
 print(list(map(pow, nums, itertools.repeat(2))))
 
 for mapper in itertools.starmap, starmap, starmap1:
     print(list(mapper(pow, zip(nums, itertools.repeat(2)))))
-

@@ -44,9 +44,7 @@ def test_factrial():
 
     for n in 0, 5, 100:
         for f in funcs:
-            print(f'{f.__name__}({n})={f(n)}')
-
-
+            print(f"{f.__name__}({n})={f(n)}")
 
 
 test_factrial()

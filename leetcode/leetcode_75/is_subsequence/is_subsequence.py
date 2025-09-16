@@ -29,11 +29,14 @@ def isSubsequence2(s: str, t: str) -> bool:
     return not s_letters
 
 
-def isSubsequence3(s: str, t: str, ) -> bool:
+def isSubsequence3(
+    s: str,
+    t: str,
+) -> bool:
     def check(s: str, t: str):
-        if s == '':
+        if s == "":
             return True
-        if t == '':
+        if t == "":
             return False
         if s[0] == t[0]:
             return check(s[1:], t[1:])

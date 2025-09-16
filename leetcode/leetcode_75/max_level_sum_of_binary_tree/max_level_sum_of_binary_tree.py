@@ -44,7 +44,7 @@ def maxLevelSum(root: TreeNode | None) -> int:
             nodes_to_visit.append((node.left, level + 1))
         if node.right:
             nodes_to_visit.append((node.right, level + 1))
-    return res.index(max(res)) +1
+    return res.index(max(res)) + 1
 
 
 def test():

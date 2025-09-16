@@ -32,7 +32,6 @@ def moveZeroes1(nums: list[int]) -> None:
         j += 1
 
 
-
 def moveZeroes2(nums: list[int]) -> None:
     j = 0
     for i in range(len(nums)):
@@ -49,10 +48,7 @@ def moveZeroes3(nums: list[int]) -> None:
         nums[j], nums[i] = nums[i], nums[j]
 
 
-
-
 nums = [10, 20, 0, 0, 30, 40, 50, 0, 60]
 #      [10, 20, 30, 40, 50, 60, 0, 0, 0]
 moveZeroes3(nums)
 # [10, 20, 30, 40, 0, 0]
-

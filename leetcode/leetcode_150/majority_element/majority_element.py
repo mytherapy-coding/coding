@@ -25,7 +25,8 @@ def majorityElement3(nums: list[int]) -> int:
 def majorityElement4(nums: list[int]) -> int:
     nums = sorted(nums)
     print(nums)
-    return nums[len(nums)//2]
+    return nums[len(nums) // 2]
+
 
 nums = [2, 2, 1, 1, 1, 2, 2]
 print(majorityElement(nums))

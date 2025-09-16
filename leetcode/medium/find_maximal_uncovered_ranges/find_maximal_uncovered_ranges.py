@@ -82,7 +82,6 @@ def tests():
     tab = [
         ([], 10, [[0, 9]]),
         ([[0, 9]], 10, []),
-
     ]
     funcs = [
         findMaximalUncoveredRanges0,
@@ -91,9 +90,9 @@ def tests():
     for ranges, n, expected in tab:
         for func in funcs:
             result = func(n, ranges)
-            assert result == expected, f'{func.__qualname__} failed on {ranges}, {n=}: {result}, but {expected=}'
-
-
+            assert (
+                result == expected
+            ), f"{func.__qualname__} failed on {ranges}, {n=}: {result}, but {expected=}"
 
     n = 10
     ranges = []

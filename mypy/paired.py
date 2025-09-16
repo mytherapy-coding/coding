@@ -1,13 +1,13 @@
 def paired1(iterable):
     prev_e = None
     for i, e in enumerate(iterable):
-        print(i, e, i%2, prev_e)
+        print(i, e, i % 2, prev_e)
         if i % 2 == 1:  # i - (i // 2) * 2
             yield prev_e, e
         prev_e = e
 
 
-print(list(paired1([10,20,30,40,50,60])))
+print(list(paired1([10, 20, 30, 40, 50, 60])))
 
 
 def paired2(iterable):
@@ -19,7 +19,7 @@ def paired2(iterable):
         pass
 
 
-print(list(paired2([10,20,30,40,50,60])))
+print(list(paired2([10, 20, 30, 40, 50, 60])))
 
 
 def paired3(iterable):
@@ -31,7 +31,7 @@ def paired3(iterable):
         pass
 
 
-print(list(paired3([10,20,30,40,50,60])))
+print(list(paired3([10, 20, 30, 40, 50, 60])))
 
 
 def paired4(iterable):
@@ -42,7 +42,8 @@ def paired4(iterable):
             yield tuple(pair)
             pair.clear()
 
-print(list(paired4([10,20,30,40,50,60, 70])))
+
+print(list(paired4([10, 20, 30, 40, 50, 60, 70])))
 
 
 def paired5(iterable):
@@ -50,9 +51,9 @@ def paired5(iterable):
     return ((e, next(it)) for e in it)
 
 
-print(list(paired5([10,20,30,40,50,60])))
+print(list(paired5([10, 20, 30, 40, 50, 60])))
 
-print('*********************')
+print("*********************")
 
 
 def triple(iterable):
@@ -76,7 +77,7 @@ def tuple_k(k, iterable):
             t.clear()
 
 
-print(list(tuple_k(2, [10,20,30,40,50,60])))
+print(list(tuple_k(2, [10, 20, 30, 40, 50, 60])))
 print(list(tuple_k(1, range(0, 100, 10))))
 
 
@@ -89,7 +90,5 @@ def tuple_k1(k, iterable):
         pass
 
 
-print(list(tuple_k1(2, [10,20,30,40,50,60, 70])))
+print(list(tuple_k1(2, [10, 20, 30, 40, 50, 60, 70])))
 print(list(tuple_k1(3, range(0, 100, 10))))
-
-

@@ -57,7 +57,7 @@ def mymap8(f, *iterables):
 
 
 def square(x):
-    return x ** 2
+    return x**2
 
 
 def prod(*elm):
@@ -72,10 +72,10 @@ values = [1, 2, 3, 2]
 for mapper in map, mymap1, mymap2, mymap3, mymap4, mymap5, mymap6, mymap8:
     print(mapper)
     print(list(mapper(square, values)))
-    print(list(mapper(lambda x: x ** 2, values)))
+    print(list(mapper(lambda x: x**2, values)))
     print(list(mapper(int, mapper(str, values))))
 
-print('**************************')
+print("**************************")
 for mapper in map, mymap3, mymap4, mymap5, mymap8:
     print(mapper)
     print(list(mapper(operator.mul, values, values)))

@@ -3,11 +3,11 @@ def removeStars1(s: str) -> str:
     i = 1
     while i < len(new_s):
         if new_s[i] == "*":
-            del new_s[i-1:i+1]
+            del new_s[i - 1 : i + 1]
             i -= 1
         else:
             i += 1
-    return ''.join(new_s)
+    return "".join(new_s)
 
 
 def removeStars2(s: str) -> str:
@@ -17,7 +17,7 @@ def removeStars2(s: str) -> str:
             res.append(ch)
         else:
             res.pop()
-    return ''.join(res)
+    return "".join(res)
 
 
 s = "leet**cod*e"

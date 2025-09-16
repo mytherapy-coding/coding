@@ -32,7 +32,7 @@ def find_short_words2(words: list[str]) -> list[str]:
     return res
 
 
-print(find_short_words2(['hello', 'cat', 'hui', 'love', 'you']))
+print(find_short_words2(["hello", "cat", "hui", "love", "you"]))
 
 
 def prefix(k: int, values: list) -> list:
@@ -85,10 +85,10 @@ def uniq_values2(values: list) -> list:
     return [value for value in values if values.count(value) <= 1]
 
 
-print(uniq_values2(['you', 'love', 'you']))
-print(uniq_values2(['a', 'b', 'c', 'b']))
+print(uniq_values2(["you", "love", "you"]))
+print(uniq_values2(["a", "b", "c", "b"]))
 
-print('counter')
+print("counter")
 
 
 def uniq_values3(values: list) -> list:
@@ -100,8 +100,8 @@ def uniq_values3(values: list) -> list:
     return res
 
 
-print(uniq_values3(['you', 'love', 'you']))
-print(uniq_values3(['a', 'b', 'c', 'b']))
+print(uniq_values3(["you", "love", "you"]))
+print(uniq_values3(["a", "b", "c", "b"]))
 
 
 def uniq_values4(values: list) -> list:
@@ -113,8 +113,8 @@ def uniq_values4(values: list) -> list:
     return res
 
 
-print(uniq_values4(['you', 'love', 'you']))
-print(uniq_values4(['a', 'b', 'c', 'b']))
+print(uniq_values4(["you", "love", "you"]))
+print(uniq_values4(["a", "b", "c", "b"]))
 
 
 def uniq_values5(values: list) -> list:
@@ -126,23 +126,25 @@ def uniq_values5(values: list) -> list:
     return res
 
 
-print(uniq_values5(['you', 'love', 'you']))
-print(uniq_values5(['a', 'b', 'c', 'b']))
+print(uniq_values5(["you", "love", "you"]))
+print(uniq_values5(["a", "b", "c", "b"]))
+
 
 def uniq_values6(values: list) -> list:
     return [value for value, c in collections.Counter(values).items() if c == 1]
 
 
-print(uniq_values6(['you', 'love', 'you']))
-print(uniq_values6(['a', 'b', 'c', 'b']))
+print(uniq_values6(["you", "love", "you"]))
+print(uniq_values6(["a", "b", "c", "b"]))
+
 
 def mk_love(words: list[str]) -> str:
-    words.append('love')
-    words.append('me')
-    return ' '.join(words)
+    words.append("love")
+    words.append("me")
+    return " ".join(words)
 
 
-words = ['my', 'parents']
+words = ["my", "parents"]
 print(words)
 print(mk_love(words))
 print(words)
@@ -153,29 +155,29 @@ def mk_love1(words: list[str]) -> str:
     res = []
     for word in words:
         res.append(word)
-    res.append('love')
-    res.append('me')
-    return ' '.join(res)
+    res.append("love")
+    res.append("me")
+    return " ".join(res)
 
 
-words = ['my', 'parents']
+words = ["my", "parents"]
 print(words)
 print(mk_love1(words))
 print(words)
 print()
 
-print('update')
+print("update")
 
 
 def mk_love2(words: list[str]) -> str:
     res = []
     res.extend(words)
-    res.append('love')
-    res.append('me')
-    return ' '.join(res)
+    res.append("love")
+    res.append("me")
+    return " ".join(res)
 
 
-words = ['my', 'parents']
+words = ["my", "parents"]
 print(words)
 print(mk_love2(words))
 print(words)
@@ -183,21 +185,21 @@ print()
 
 
 def mk_love3(words: list[str]) -> str:
-    return ' '.join(words + ['love', 'me'])
+    return " ".join(words + ["love", "me"])
 
 
-words = ['my', 'parents']
+words = ["my", "parents"]
 print(words)
 print(mk_love3(words))
 print(words)
-print('chain')
+print("chain")
 
 
 def mk_love4(words: list[str]) -> str:
-    return ' '.join(itertools.chain(words, ['love', 'me']))
+    return " ".join(itertools.chain(words, ["love", "me"]))
 
 
-words = ['my', 'parents']
+words = ["my", "parents"]
 print(words)
 print(mk_love4(words))
 print(words)

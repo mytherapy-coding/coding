@@ -1,17 +1,17 @@
 for e in range(20):
     if e % 3 == 0 and e % 5 == 0:
-        print(f'fizz-buzz = {e}')
+        print(f"fizz-buzz = {e}")
     elif e % 3 == 0:
-        print(f'fizz = {e}')
+        print(f"fizz = {e}")
     elif e % 5 == 0:
-        print(f'buzz = {e}')
+        print(f"buzz = {e}")
 
 for num in range(1, 21):
-    string = ''
+    string = ""
     if num % 3 == 0:
-        string = string + 'Fizz'
+        string = string + "Fizz"
     if num % 5 == 0:
-        string = string + 'Buzz'
+        string = string + "Buzz"
     if num % 5 != 0 and num % 3 != 0:
         string = string + str(num)
     print(string)

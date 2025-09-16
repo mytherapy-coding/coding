@@ -1,4 +1,6 @@
-def removeInterval0(intervals: list[list[int]], toBeRemoved: list[int]) -> list[list[int]]:
+def removeInterval0(
+    intervals: list[list[int]], toBeRemoved: list[int]
+) -> list[list[int]]:
     # O(n) - time complexity
     # O(1) - space complexity
     # Input: intervals = [[0, 2], [3, 4], [5, 7]], toBeRemoved = [1, 6]
@@ -24,7 +26,9 @@ def removeInterval0(intervals: list[list[int]], toBeRemoved: list[int]) -> list[
     return res
 
 
-def removeInterval(intervals: list[list[int]], toBeRemoved: list[int]) -> list[list[int]]:
+def removeInterval(
+    intervals: list[list[int]], toBeRemoved: list[int]
+) -> list[list[int]]:
     def is_intersect(iv1, iv2):
         return max(iv1[0], iv2[0]) < min(iv1[1], iv2[1])
 

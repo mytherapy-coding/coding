@@ -1,6 +1,6 @@
 class Solution:
     def tribonacci(self, n: int) -> int:
-        '''
+        """
         recursion -> time complexity: O(1.8^n), space complexity: O(n)
         ---------
         def trib(n: int) -> int:
@@ -35,22 +35,24 @@ class Solution:
         return trib(n)
 
         DP - dynamic programming(list) -> time complexity: O(n), space complexity: O(n)
-        
+
         def trib(n: int) -> int:
             t = [0] + [1]*n
             for i in range(3, n+1):
                 t[i] = t[i-3] + t[i-2] + t[i-1]
             return t[n]
         return trib(n)
-        
+
         DP - dynamic programming(list) -> time complexity: O(n), space complexity: O(1)
-        '''
+        """
+
         def trib(n: int) -> int:
             if n == 0:
                 return 0
             t0, t1, t2 = 0, 1, 1
-            for i in range(3, n+1):
+            for i in range(3, n + 1):
                 t3 = t2 + t1 + t0
                 t0, t1, t2 = t1, t2, t3
             return t2
+
         return trib(n)

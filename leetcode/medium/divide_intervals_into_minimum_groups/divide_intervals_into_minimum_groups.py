@@ -97,7 +97,7 @@ def minGroups5(intervals: list[list[int]]) -> int:
 def tests():
     tab = [
         ([[5, 10], [6, 8], [1, 5], [2, 3], [1, 10]], 3),
-        ([[1, 3], [5, 6], [8, 10], [11, 13]], 1)
+        ([[1, 3], [5, 6], [8, 10], [11, 13]], 1),
     ]
     funcs = [
         minGroups1,
@@ -109,7 +109,9 @@ def tests():
     for func in funcs:
         for intervals, expected in tab:
             result = func(intervals)
-            assert result == expected, f'{func.__qualname__}({intervals}): {result}, {expected=}'
+            assert (
+                result == expected
+            ), f"{func.__qualname__}({intervals}): {result}, {expected=}"
 
 
 tests()

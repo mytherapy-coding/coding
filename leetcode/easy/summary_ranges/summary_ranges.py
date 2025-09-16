@@ -20,7 +20,7 @@ def summaryRanges0(nums: list[int]) -> list[str]:
         if start == end:
             res.append(str(start))
         else:
-            res.append(f'{start}->{end}')
+            res.append(f"{start}->{end}")
     return res
 
 
@@ -40,7 +40,9 @@ def summaryRanges1(nums: list[int]) -> list[str]:
         return intervals
 
     intervals = find_intervals(nums)
-    res = [str(start) if start == end else f'{start}->{end}' for start, end in intervals]
+    res = [
+        str(start) if start == end else f"{start}->{end}" for start, end in intervals
+    ]
     return res
 
 
@@ -62,7 +64,10 @@ def summaryRanges2(nums: list[int]) -> list[str]:
                 start = end = num
         yield start, end
 
-    return [str(start) if start == end else f'{start}->{end}' for start, end in find_intervals(nums)]
+    return [
+        str(start) if start == end else f"{start}->{end}"
+        for start, end in find_intervals(nums)
+    ]
 
 
 def tests():

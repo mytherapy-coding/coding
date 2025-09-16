@@ -6,7 +6,7 @@ def len_str(s: str) -> int:
     return len_str(s[1:]) + 1
 
 
-print(len_str('hello'))
+print(len_str("hello"))
 
 
 def find_elem(x, elems) -> bool:
@@ -14,8 +14,8 @@ def find_elem(x, elems) -> bool:
         return False
     return x == elems[0] or find_elem(x, elems[1:])
 
-###
 
+###
 
 
 print(find_elem(15, [4, 6, 7, 5]))
@@ -40,7 +40,8 @@ def sorting(values):
     equal = [value for value in values if value == p]
     return sorting(less) + equal + sorting(greater)
 
-'''
+
+"""
 K(n) - number of recursion calls
 n = len(values)
 len(less) == len(right) == n/2
@@ -59,9 +60,9 @@ assume i = p
 s = 2 + 2 + 4 + 8 + 16 + ...+ 2^p = 2^p + 2^p
 
 
-'''
+"""
 
-'''
+"""
 T(n)
 time complexity of sorting(values)
 where n = len(values)
@@ -78,12 +79,12 @@ T(n) = C*n + 2*T(n/2)
 
 
  
-'''
+"""
 
 
 print(sorting([7, 9, 8, 0, 10, 3, 2]))
 
-print('________________')
+print("________________")
 
 
 def merge_sort(values):
@@ -91,8 +92,8 @@ def merge_sort(values):
         return []
     if len(values) == 1:
         return [values[0]]
-    left = values[:len(values) // 2]
-    right = values[len(values) // 2:]
+    left = values[: len(values) // 2]
+    right = values[len(values) // 2 :]
     left = merge_sort(left)
     right = merge_sort(right)
 
@@ -132,7 +133,7 @@ print(log(1024))
 
 def reverse(s: str) -> str:
     if not s:
-        return ''
+        return ""
     return s[-1] + reverse(s[:-1])
 
 
@@ -196,7 +197,6 @@ def merge3(left: list[int], right: list[int]) -> list[int]:
     return merged
 
 
-
 print()
 print(merge([1, 3, 6, 8, 9, 11, 13, 16, 18, 79], [2, 4, 5, 7, 9, 13, 17, 23, 45, 78]))
 print(merge1([1, 3, 6, 8, 9, 11, 13, 16, 18, 79], [2, 4, 5, 7, 9, 13, 17, 23, 45, 78]))
@@ -213,24 +213,23 @@ def find_min(nums):
 
 def find_min1(nums):
     def find_min(i):
-        #find minimum among nums[i:]
-        if len(nums) -i  == 1:
+        # find minimum among nums[i:]
+        if len(nums) - i == 1:
             return nums[-1]
-        min_tail = find_min(i+1)
+        min_tail = find_min(i + 1)
         return min_tail if min_tail <= nums[i] else nums[i]
+
     return find_min(0)
+
 
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print(a[:-1])
 print(a[1:])
 
 
-
-
-
-'''
+"""
 Написать функцию dupeach(values), которая создает список 2x размера, где каждый элемент из values дублирован.
 Написать merge_ordered(values1, values2), которая берет два отсортированных списка и создает новый отсортированный 
 список из элементов, каждый из которых находится в обоих списках values1 и values2.
 
-'''
+"""

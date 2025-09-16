@@ -31,6 +31,7 @@ def equalPairs3(grid: list[list[int]]) -> int:
     count1 = Counter(tuple(row) for row in grid)
     return sum(count1[tuple(row[i] for row in grid)] for i in range(len(grid)))
 
+
 grid = [[3, 2, 1], [1, 7, 6], [2, 7, 7]]
 print(equalPairs3(grid))
 grid = [[3, 1, 2, 2], [1, 4, 4, 5], [2, 4, 2, 2], [2, 4, 2, 2]]

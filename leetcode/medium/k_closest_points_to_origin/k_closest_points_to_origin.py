@@ -50,6 +50,7 @@ def kClosest5(points: list[list[int]], k: int) -> list[list[int]]:
 def kClosest6(points: list[list[int]], k: int) -> list[list[int]]:
     def d(p):
         return p[0] ** 2 + p[1] ** 2
+
     ordered = []
     for p in points:
         heapq.heappush(ordered, (-d(p), p))
@@ -70,19 +71,33 @@ def kClosest8(points: list[list[int]], k: int) -> list[list[int]]:
 
 
 def tests():
-    funcs = [kClosest0, kClosest1, kClosest2, kClosest3, kClosest4, kClosest5, kClosest6, kClosest7, kClosest8]
+    funcs = [
+        kClosest0,
+        kClosest1,
+        kClosest2,
+        kClosest3,
+        kClosest4,
+        kClosest5,
+        kClosest6,
+        kClosest7,
+        kClosest8,
+    ]
     tests = [
         ([[1, 3], [-2, 2]], 1, [[-2, 2]]),
         ([[1, 3], [-2, 2], [-7, 3]], 1, [[-2, 2]]),
         ([[1, 3], [-2, 2], [7, 8], [4, 7]], 3, [[-2, 2], [1, 3], [4, 7]]),
-        ([[3, 3], [5, -1], [-2, 4]], 2, [[3, 3], [-2, 4]])
+        ([[3, 3], [5, -1], [-2, 4]], 2, [[3, 3], [-2, 4]]),
     ]
 
     for func in funcs:
         for points, key, expected_result in tests:
             result = func(points, key)
-            assert result == expected_result, f"{func.__name__}{points, key} => {result} (Expected: {expected_result})"
-            print(f"{func.__name__}{points, key} => {result} (Expected: {expected_result})")
+            assert (
+                result == expected_result
+            ), f"{func.__name__}{points, key} => {result} (Expected: {expected_result})"
+            print(
+                f"{func.__name__}{points, key} => {result} (Expected: {expected_result})"
+            )
 
 
 print(tests())

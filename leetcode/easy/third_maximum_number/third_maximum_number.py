@@ -37,16 +37,10 @@ def thirdMax3(nums: list[int]) -> int:
 
 
 def test():
-    for nums in [3,2,1], [1,2], [2,2,3,1], [1,2,2,5,3,5]:
+    for nums in [3, 2, 1], [1, 2], [2, 2, 3, 1], [1, 2, 2, 5, 3, 5]:
         for thirdmax in thirdMax0, thirdMax1, thirdMax2, thirdMax3:
             res = thirdmax(nums)
             print(f"nums: {nums}, thirdmax: {thirdmax.__name__}, result: {res}")
 
 
 test()
-
-
-
-
-
-

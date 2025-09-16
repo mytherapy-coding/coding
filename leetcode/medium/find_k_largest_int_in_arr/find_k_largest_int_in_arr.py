@@ -41,10 +41,21 @@ def kthLargestNumber6(nums: list[str], k: int) -> str:
 
 
 def test():
-    for nums, k in (['16', '19', '14'], 3), (['16', '8', '10'], 2), (["3", "6", "7", "10"], 4), (["0", "0"], 2):
-        for kth in kthLargestNumber1, kthLargestNumber2, kthLargestNumber3, \
-                   kthLargestNumber4, kthLargestNumber5, kthLargestNumber6:
-            print(f'{kth.__name__}({nums}, {k=}): {kth(nums, k)}')
+    for nums, k in (
+        (["16", "19", "14"], 3),
+        (["16", "8", "10"], 2),
+        (["3", "6", "7", "10"], 4),
+        (["0", "0"], 2),
+    ):
+        for kth in (
+            kthLargestNumber1,
+            kthLargestNumber2,
+            kthLargestNumber3,
+            kthLargestNumber4,
+            kthLargestNumber5,
+            kthLargestNumber6,
+        ):
+            print(f"{kth.__name__}({nums}, {k=}): {kth(nums, k)}")
         print()
 
 

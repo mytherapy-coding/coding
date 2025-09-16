@@ -142,7 +142,6 @@ def test():
         SmallestInfiniteSet4,
         SmallestInfiniteSet5,
         SmallestInfiniteSet6,
-
     ]
     for SmallestInfiniteSet in classes:
         smallestInfiniteSet = SmallestInfiniteSet()

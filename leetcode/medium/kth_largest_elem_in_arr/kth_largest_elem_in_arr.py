@@ -80,8 +80,8 @@ def test():
         findKthLargest4,
         findKthLargest5,
         findKthLargest6,
-        findKthLargest7
-        ]
+        findKthLargest7,
+    ]
 
     tests = [
         ([3, 2, 1, 5, 6, 4], 2, 5),
@@ -92,9 +92,10 @@ def test():
     for func in funcs:
         for nums, k, expected_result in tests:
             result = func(nums, k)
-            assert result == expected_result, f"{func.__name__}{nums, k} => {result} (Expected: {expected_result})"
+            assert (
+                result == expected_result
+            ), f"{func.__name__}{nums, k} => {result} (Expected: {expected_result})"
             print(f"{func.__name__}{nums, k} => {result} (Expected: {expected_result})")
 
+
 print(test())
-
-

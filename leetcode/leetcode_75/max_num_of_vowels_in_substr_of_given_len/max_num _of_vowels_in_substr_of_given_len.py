@@ -2,10 +2,10 @@ from collections import deque
 
 
 def maxVowels0(s: str, k: int) -> int:
-    vowels = ('a', 'e', 'i', 'o', 'u')
+    vowels = ("a", "e", "i", "o", "u")
     max_vowels = 0
     for i in range(len(s) - k + 1):
-        window = s[i:i + k]
+        window = s[i : i + k]
         window_vowels = sum(v in vowels for v in window)
         max_vowels = max(window_vowels, max_vowels)
 
@@ -13,7 +13,7 @@ def maxVowels0(s: str, k: int) -> int:
 
 
 def maxVowels1(s: str, k: int) -> int:
-    vowels = ('a', 'e', 'i', 'o', 'u')
+    vowels = ("a", "e", "i", "o", "u")
     window = s[0:k]
     window_vowels = sum(v in vowels for v in window)
     max_vowels = window_vowels
@@ -24,7 +24,7 @@ def maxVowels1(s: str, k: int) -> int:
 
 
 def maxVowels2(s: str, k: int) -> int:
-    vowels = ('a', 'e', 'i', 'o', 'u')
+    vowels = ("a", "e", "i", "o", "u")
 
     def gen_window():
         window = s[0:k]
@@ -38,12 +38,12 @@ def maxVowels2(s: str, k: int) -> int:
 
 
 def voweled(v: str) -> int:
-    if v in ('a', 'e', 'i', 'o', 'u'):
+    if v in ("a", "e", "i", "o", "u"):
         return 1
     return 0
 
 
-'''
+"""
 def findMaxAverage3(nums: list[int], k: int) -> float:
     window = deque()
     win_sum = 0
@@ -57,13 +57,13 @@ def findMaxAverage3(nums: list[int], k: int) -> float:
             win_max = max(win_max, win_sum)
 
     return win_max / k
-'''
+"""
 
 
 def maxVowels3(s: str, k: int) -> int:
     window = deque()
     win_sum = 0
-    win_max = float('-inf')
+    win_max = float("-inf")
     for ch in s:
         window.append(ch)
         win_sum += voweled(ch)
@@ -77,7 +77,7 @@ def maxVowels3(s: str, k: int) -> int:
 
 def maxVowels4(s: str, k: int) -> int:
     win_vowels = 0
-    win_max = float('-inf')
+    win_max = float("-inf")
     for i, ch in enumerate(s):
         win_vowels += voweled(ch)
         if i >= k:

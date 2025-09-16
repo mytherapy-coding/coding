@@ -2,7 +2,7 @@ import string, itertools
 
 
 def is_pangram1(s: str) -> bool:
-    unique = {ch for ch in s.lower() if 'a' <= ch <= 'z'}
+    unique = {ch for ch in s.lower() if "a" <= ch <= "z"}
     return len(unique) == len(string.ascii_lowercase)
 
 
@@ -87,8 +87,8 @@ def test_is_pangram():
     from collections.abc import Callable
 
     tab: tuple[tuple[str, bool], ...] = (
-        ('', False),
-        (' ', False),
+        ("", False),
+        (" ", False),
         ("The quick, brown fox jumps over the lazy dog!", True),
         (string.ascii_lowercase, True),
         (string.ascii_uppercase, True),
@@ -114,7 +114,9 @@ def test_is_pangram():
     for f in funcs:
         for s, expected in tab:
             result = f(s)
-            assert result == expected, f'test failed on {f.__name__}({s}, {expected=}, {result=}'
+            assert (
+                result == expected
+            ), f"test failed on {f.__name__}({s}, {expected=}, {result=}"
 
 
 test_is_pangram()

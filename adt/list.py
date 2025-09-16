@@ -10,7 +10,7 @@ class List:
         if i == None:
             i = len(self.elems) - 1
         x = self.elems[i]
-        self.elems = self.elems[:i] + self.elems[i + 1:]
+        self.elems = self.elems[:i] + self.elems[i + 1 :]
         return x
 
     def __len__(self):
@@ -20,7 +20,7 @@ class List:
         return self.elems[i]
 
     def __setitem__(self, i, x):
-        self.elems = self.elems[:i] + (x,) + self.elems[i + 1:]
+        self.elems = self.elems[:i] + (x,) + self.elems[i + 1 :]
 
     def __str__(self):
         return str(self.elems)

@@ -13,12 +13,12 @@ def increasingTriplet0(nums: list[int]) -> bool:
     return False
 
 
-'''
+"""
 n = 5*10^5
 n^2 = (5*10^5)^2 = 25*10^10 = 250*10^9
 computer speed is 2-3GHz
 time complexity - 0(n)^3
-'''
+"""
 
 
 def increasingTriplet1(nums: list[int]) -> bool:
@@ -63,19 +63,25 @@ def increasingTriplet3(nums: list[int]) -> bool:
 
 def increasingTriplet4(nums: list[int]) -> bool:
     for j in range(1, len(nums) - 1):
-        if any(nums[i] < nums[j] for i in range(j)) and any(nums[j] < nums[k] for k in range(j + 1, len(nums))):
+        if any(nums[i] < nums[j] for i in range(j)) and any(
+            nums[j] < nums[k] for k in range(j + 1, len(nums))
+        ):
             return True
     return False
 
 
 def increasingTriplet5(nums: list[int]) -> bool:
     return any(
-        any(nums[i] < nums[j] for i in range(j)) and any(nums[j] < nums[k] for k in range(j + 1, len(nums))) for j in
-        range(1, len(nums) - 1))
+        any(nums[i] < nums[j] for i in range(j))
+        and any(nums[j] < nums[k] for k in range(j + 1, len(nums)))
+        for j in range(1, len(nums) - 1)
+    )
 
 
 def increasingTriplet6(nums: list[int]) -> bool:
-    return any(min(nums[:j]) < nums[j] < max(nums[j + 1:]) for j in range(1, len(nums) - 1))
+    return any(
+        min(nums[:j]) < nums[j] < max(nums[j + 1 :]) for j in range(1, len(nums) - 1)
+    )
 
 
 def increasingTriplet7(nums: list[int]) -> bool:
@@ -95,7 +101,7 @@ def increasingTriplet8(nums: list[int]) -> bool:
     for j in range(1, len(nums) - 1):
         min_nums[j] = min(nums[:j])
     for j in range(1, len(nums) - 1):
-        max_nums[j] = max(nums[j + 1:])
+        max_nums[j] = max(nums[j + 1 :])
 
     return any(min_nums[j] < nums[j] < max_nums[j] for j in range(1, len(nums) - 1))
 
@@ -132,7 +138,7 @@ def increasingTriplet10(nums: list[int]) -> bool:
     return False
 
 
-'''
+"""
 min(nums[:j]) < nums[j] < max(nums[j + 1:])
 min_lefts[j] = min(nums[:j])
 max_rights[j] = max(nums[j+1:])
@@ -146,15 +152,15 @@ max_rights[j] = max(nums[j+1], max_righst[j+1])
 nums =       [67, 70, 60, 10, 20, 80, 76, 40]
 max_rights = [80, 80, 80, 80, ??, 76, ??, --]
 min_lefts =  [--, 67, 67, 60, 10, 10, 10, 10]
-'''
+"""
 
-'''
+"""
 accumulate + max
 2. SortedList
 3. Editorial solution
 4. Heap (min-heap/max-heap)?
 
-'''
+"""
 print("______________")
 
 
@@ -162,7 +168,9 @@ def increasingTriplet11(nums: list[int]) -> bool:
     if len(nums) < 3:
         return False
     min_nums = list(accumulate(nums, min, initial=nums[0]))
-    max_nums = list(islice(accumulate(reversed(nums), max, initial=nums[-1]), len(nums)))[::-1]
+    max_nums = list(
+        islice(accumulate(reversed(nums), max, initial=nums[-1]), len(nums))
+    )[::-1]
 
     return any(min_nums[j] < nums[j] < max_nums[j] for j in range(1, len(nums) - 1))
 
@@ -171,9 +179,14 @@ def increasingTriplet12(nums: list[int]) -> bool:
     if len(nums) < 3:
         return False
     min_nums = list(accumulate(nums, min, initial=nums[0]))
-    max_nums = list(islice(accumulate(reversed(nums), max, initial=nums[-1]), len(nums)))[::-1]
+    max_nums = list(
+        islice(accumulate(reversed(nums), max, initial=nums[-1]), len(nums))
+    )[::-1]
 
-    return any(min_num < num < max_num for num, min_num, max_num in zip(nums[1:-1], min_nums[1:-1], max_nums[1:-1]))
+    return any(
+        min_num < num < max_num
+        for num, min_num, max_num in zip(nums[1:-1], min_nums[1:-1], max_nums[1:-1])
+    )
 
 
 def increasingTriplet13(nums: list[int]) -> bool:

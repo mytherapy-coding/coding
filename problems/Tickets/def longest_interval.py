@@ -5,7 +5,7 @@ def longest_interval1(tickets: list[int]):
     candidate = []
     # [1, 2, 3, 4, 4, 5, 8, 9, 15]
     for end in range(1, len(tickets)):
-        if tickets[end] == tickets[end-1] + 1 or tickets[end] == tickets[end-1] :
+        if tickets[end] == tickets[end - 1] + 1 or tickets[end] == tickets[end - 1]:
             pass
         else:
             candidate.append(end - start)
@@ -21,11 +21,10 @@ def longest_interval2(tickets: list[int]):
     iv_longest = 0
     # [1, 2, 3, 4, 4, 5, 8, 9, 15]
     for end in range(1, len(tickets)):
-        if tickets[end] - tickets[end-1] > 1:
+        if tickets[end] - tickets[end - 1] > 1:
             iv_len = end - start
             iv_longest = max(iv_longest, iv_len)
             start = end
-
 
     return iv_longest
 
@@ -45,6 +44,5 @@ def longest_interval3(tickets: list[int]):
     return iv_longest
 
 
-print(longest_interval3([4, 4, 5, 3, 2, 1,  8, 9, 15]))
-print(longest_interval3([1,2,3,4,5]))
-
+print(longest_interval3([4, 4, 5, 3, 2, 1, 8, 9, 15]))
+print(longest_interval3([1, 2, 3, 4, 5]))

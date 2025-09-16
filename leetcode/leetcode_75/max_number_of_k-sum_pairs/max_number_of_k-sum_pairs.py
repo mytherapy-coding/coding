@@ -12,11 +12,9 @@ def maxOperations(nums: list[int], k: int) -> int:
             pairs = min(count[y], count[x])
             total += pairs
         elif x == y:
-            pairs = count[x]//2
+            pairs = count[x] // 2
             total += pairs
     return total
-
-
 
 
 nums = [10, 20, 30, 40, 10, 10, 40, 25, 25, 40, 10, 25]

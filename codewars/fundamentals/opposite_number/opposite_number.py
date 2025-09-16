@@ -1,8 +1,9 @@
 def opposite(number: float) -> float:
     return -number
 
+
 def test_opposite():
-    
+
     tab: tuple[tuple[float, float], ...] = (
         (4, -4),
         (5, -5),
@@ -22,12 +23,12 @@ def test_opposite():
         (76.9, -76.9),
         (654, -654),
     )
-        
+
     for number, expected in tab:
         result = opposite(number)
-        assert result == expected, f'failed test on ({number}, {expected=}, {result=}'
-        
-    print("end of tests")   
-       
-    
+        assert result == expected, f"failed test on ({number}, {expected=}, {result=}"
+
+    print("end of tests")
+
+
 test_opposite()

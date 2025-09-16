@@ -19,4 +19,3 @@ values = [0, 1, 2, 5, 3, 4, 7, 12]
 
 for filter_all in filter, myfilter, myfilter1:
     print(list(filter_all(even, values)))
-

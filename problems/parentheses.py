@@ -1,4 +1,4 @@
-'''
+"""
 Write function that detects if the given expression contains balanced parentheses
 
 def  isbalanced(expr: str) -> bool
@@ -13,16 +13,16 @@ Invalid:
 ))
 ()(
 ((()
-'''
+"""
 
 
 def isbalanced0(expr: str) -> bool:
     counter = 0
 
     for char in expr:
-        if char == '(':
+        if char == "(":
             counter += 1
-        elif char == ')':
+        elif char == ")":
             counter -= 1
 
         if counter < 0:
@@ -36,9 +36,9 @@ def isbalanced1(expr: str, stack=None) -> bool:
     if stack is None:
         stack = []
     for char in expr:
-        if char == '(':
+        if char == "(":
             stack.append(char)
-        elif char == ')':
+        elif char == ")":
             if not stack:
                 return False
             stack.pop()
@@ -48,9 +48,9 @@ def isbalanced1(expr: str, stack=None) -> bool:
 def isbalanced2(expr: str, mkstack=list) -> bool:
     stack = mkstack()
     for char in expr:
-        if char == '(':
+        if char == "(":
             stack.append(char)
-        elif char == ')':
+        elif char == ")":
             if not stack:
                 return False
             stack.pop()
@@ -69,7 +69,9 @@ def isbalanced3(expr: str, mkstack=list) -> bool:
             if not stack:
                 return False
             opening_paren = stack.pop()
-            if opening_parentheses.index(opening_paren) != closing_parentheses.index(char):
+            if opening_parentheses.index(opening_paren) != closing_parentheses.index(
+                char
+            ):
                 return False
 
     return not stack
@@ -77,11 +79,7 @@ def isbalanced3(expr: str, mkstack=list) -> bool:
 
 def isbalanced4(expr: str, mkstack=list) -> bool:
     stack = mkstack()
-    parentheses_map = {
-        "(": ")",
-        "[": "]",
-        "{": "}"
-    }
+    parentheses_map = {"(": ")", "[": "]", "{": "}"}
 
     for char in expr:
         if char in parentheses_map:
@@ -97,6 +95,7 @@ def isbalanced4(expr: str, mkstack=list) -> bool:
 
 def test():
     from collections import deque
+
     class Stack:
         def __init__(self):
             self.items = []

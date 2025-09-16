@@ -9,11 +9,11 @@ def predictPartyVictory(senate: str) -> str:
     size = len(senators)
     while senators:
         s = senators.popleft()
-        if s == 'R':
+        if s == "R":
             if buns >= 0:
                 senators.append(s)
             buns += 1
-        if s == 'D':
+        if s == "D":
             if buns <= 0:
                 senators.append(s)
             buns -= 1
@@ -23,11 +23,11 @@ def predictPartyVictory(senate: str) -> str:
                 break
             size = len(senators)
     if buns < 0:
-        return 'Dire'
+        return "Dire"
     elif buns > 0:
-        return 'Radiant'
+        return "Radiant"
     else:
-        return ''
+        return ""
 
 
 def predictPartyVictory1(senate: str) -> str:
@@ -37,20 +37,20 @@ def predictPartyVictory1(senate: str) -> str:
     while senators:
         s = senators.popleft()
         count[s] -= 1
-        if s == 'R':
+        if s == "R":
             if buns >= 0:
                 senators.append(s)
                 count[s] += 1
             buns += 1
-        if s == 'D':
+        if s == "D":
             if buns <= 0:
                 senators.append(s)
                 count[s] += 1
             buns -= 1
-        if count['R'] == 0 or count['D'] == 0:
+        if count["R"] == 0 or count["D"] == 0:
             break
         print(count, senators)
-    if count['D'] == 0:
+    if count["D"] == 0:
         return "Radiant"
     elif count["R"] == 0:
         return "Dire"

@@ -39,13 +39,11 @@ def asteroidCollision2(asteroids: list[int]) -> list[int]:
     return st
 
 
-asteroids = [-1, 7, 3,  4, -5]
+asteroids = [-1, 7, 3, 4, -5]
 print(asteroidCollision2(asteroids))
-asteroids = [5,10,-5]
+asteroids = [5, 10, -5]
 print(asteroidCollision2(asteroids))
-asteroids = [8,-8]
+asteroids = [8, -8]
 print(asteroidCollision2(asteroids))
-asteroids = [10,2,-5]
+asteroids = [10, 2, -5]
 print(asteroidCollision2(asteroids))
-
-

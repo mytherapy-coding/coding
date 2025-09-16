@@ -13,8 +13,12 @@ def maxProfit(prices: list[int]) -> int:
 
 
 def maxProfit1(prices: list[int]) -> int:
-    profit = [prices[j] - prices[i] for i in range(len(prices)) for j in range(i + 1, len(prices)) if
-              (prices[j] - prices[i]) > 0]
+    profit = [
+        prices[j] - prices[i]
+        for i in range(len(prices))
+        for j in range(i + 1, len(prices))
+        if (prices[j] - prices[i]) > 0
+    ]
     max_profit = max(profit, default=0)
     return max_profit
 
@@ -22,7 +26,7 @@ def maxProfit1(prices: list[int]) -> int:
 def maxProfit2(prices: list[int]) -> int:
     profit = []
     for i in range(len(prices) - 1):
-        max_sell = max(prices[i + 1:])
+        max_sell = max(prices[i + 1 :])
         profit.append(max_sell - prices[i])
     print(profit)
     return max(max(profit, default=0), 0)
@@ -31,7 +35,7 @@ def maxProfit2(prices: list[int]) -> int:
 def maxProfit3(prices: list[int]) -> int:
     profit = []
     for i in range(len(prices) - 1):
-        max_sell = max(prices[i + 1:])
+        max_sell = max(prices[i + 1 :])
         profit.append(max_sell - prices[i])
     print(profit)
     return max(max(profit, default=0), 0)

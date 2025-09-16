@@ -116,14 +116,22 @@ def test_delete_nth():
         ([6] * 100, 99, [6] * 99),
         ([6] * 100, 100, [6] * 100),
         ([6] * 100, 200, [6] * 100),
-        ([1, 1, 3, 3, 7, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1], 3, [1, 1, 3, 3, 7, 2, 2, 2, 1]),
+        (
+            [1, 1, 3, 3, 7, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1],
+            3,
+            [1, 1, 3, 3, 7, 2, 2, 2, 1],
+        ),
         ([1, 2, 3, 1, 2, 1, 2, 3], 2, [1, 2, 3, 1, 2, 3]),
         ([20, 20, 20, 20], 1, [20]),
         ([20, 37, 20, 21], 1, [20, 37, 21]),
         (list(range(10)), 1, list(range(10))),
         (list(range(10)) * 5, 1, list(range(10))),
         (sorted(list(range(10)) * 5), 1, list(range(10))),
-        (sorted(list(range(10)) * 5), 2, list(itertools.chain(*[[i, i] for i in range(10)]))),
+        (
+            sorted(list(range(10)) * 5),
+            2,
+            list(itertools.chain(*[[i, i] for i in range(10)])),
+        ),
         (sorted(list(range(10)) * 5), 2, [x // 2 for x in range(20)]),
     )
     funcs: tuple[Callable[list[float], float], ...] = (
@@ -143,7 +151,9 @@ def test_delete_nth():
     for f in funcs:
         for order, max_e, expected in tab:
             result = f(order, max_e)
-            assert result == expected, f'test failed on {f.__name__}({order}, {max_e}), {expected=}, {result=}'
+            assert (
+                result == expected
+            ), f"test failed on {f.__name__}({order}, {max_e}), {expected=}, {result=}"
 
 
 test_delete_nth()

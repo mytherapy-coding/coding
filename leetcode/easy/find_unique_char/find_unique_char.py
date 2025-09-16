@@ -1,5 +1,6 @@
 import collections
 
+
 def firstUniqChar0(s):
     count = collections.Counter(s)
     print(count)
@@ -7,6 +8,7 @@ def firstUniqChar0(s):
         if count[ch] == 1:
             return i
     return -1
+
 
 def firstUniqChar1(s):
     count = collections.Counter(s)

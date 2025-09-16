@@ -6,7 +6,7 @@ class KthLargest0:
         self.k = k
         self.nums = sorted(nums, reverse=True)
         if len(self.nums) > self.k:
-            del self.nums[self.k:]
+            del self.nums[self.k :]
 
     def add(self, val: int) -> int:
         self.nums.append(val)
@@ -16,7 +16,7 @@ class KthLargest0:
         return self.nums[-1]
 
     def __repr__(self):
-        return f'{type(self).__qualname__}(k={self.k},nums={self.nums})'
+        return f"{type(self).__qualname__}(k={self.k},nums={self.nums})"
 
 
 class KthLargest1:
@@ -34,7 +34,7 @@ class KthLargest1:
         return self.nums[0]
 
     def __repr__(self):
-        return f'{type(self).__qualname__}(k={self.k},nums={self.nums})'
+        return f"{type(self).__qualname__}(k={self.k},nums={self.nums})"
 
 
 def test():

@@ -75,7 +75,9 @@ def find_uniq10(arr: list[float]) -> float:
 
 
 def find_uniq11(arr: list[float]) -> float:
-    return collections.Counter({k: -v for k, v in collections.Counter(arr).items()}).most_common(1)[0][0]
+    return collections.Counter(
+        {k: -v for k, v in collections.Counter(arr).items()}
+    ).most_common(1)[0][0]
 
 
 def find_uniq12(arr: list[float]) -> float:
@@ -151,7 +153,6 @@ def test_find_uniq():
         ([1, 1, 1, 2, 1, 1], 2),
         ([0, 0, 0.55, 0, 0], 0.55),
         ([3, 10, 3, 3, 3], 10),
-
     )
     funcs: tuple[Callable[list[float], float], ...] = (
         find_uniq1,
@@ -173,13 +174,15 @@ def test_find_uniq():
         find_uniq17,
         find_uniq18,
         find_uniq19,
-        find_uniq20
+        find_uniq20,
     )
 
     for f in funcs:
         for arr, expected in tab:
             result = f(arr)
-            assert result == expected, f'test failed on {f.__name__}({arr}), {expected=}, {result=}'
+            assert (
+                result == expected
+            ), f"test failed on {f.__name__}({arr}), {expected=}, {result=}"
 
 
 test_find_uniq()

@@ -12,7 +12,11 @@ def nearestExit(maze: list[list[str]], entrance: list[int]) -> int:
                 if y == 0 or y == len(maze) - 1 or x == 0 or x == len(maze[y]) - 1:
                     exits.add(key)
                 for y1, x1 in (y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1):
-                    if 0 <= y1 < len(maze) and 0 <= x1 < len(maze[y]) and maze[y1][x1] == ".":
+                    if (
+                        0 <= y1 < len(maze)
+                        and 0 <= x1 < len(maze[y])
+                        and maze[y1][x1] == "."
+                    ):
                         key1 = (y1, x1)
                         neighbors[key].add(key1)
     print(neighbors)
@@ -34,8 +38,8 @@ def nearestExit(maze: list[list[str]], entrance: list[int]) -> int:
                     nodes_to_visit.append((neighbor, distance + 1))
                     visited.add(neighbor)
         return -1
-    return bfs(start)
 
+    return bfs(start)
 
 
 maze = [["+", "+", ".", "+"], [".", ".", ".", "+"], ["+", "+", "+", "."]]
@@ -46,8 +50,8 @@ print(nearestExit(maze, entrance))
 maze = [["+", "+", ".", "+"], [".", ".", ".", "+"], ["+", "+", "+", "."]]
 entrance = [2, 3]
 nearestExit(maze, entrance)
-'''
+"""
 [["+", "+", ".", "+"],
 [".", ".", ".", "+"],
 ["+", "+", "+", "."]]
-'''
+"""

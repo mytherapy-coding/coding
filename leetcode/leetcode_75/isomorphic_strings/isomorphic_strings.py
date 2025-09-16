@@ -20,6 +20,7 @@ def isIsomorphic(s: str, t: str) -> bool:
 
     return True
 
+
 def isIsomorphic1(s: str, t: str) -> bool:
     def check(s, t):
         d = {}
@@ -34,5 +35,6 @@ def isIsomorphic1(s: str, t: str) -> bool:
     ok1 = check(s, t)
     ok2 = check(t, s)
     return ok1 and ok2
+
 
 print(isIsomorphic1("egg", "add"))

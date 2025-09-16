@@ -5,7 +5,7 @@ class TreeNode:
         self.right = right
 
     def __repr__(self):
-        return f'{self.val} {self.left} {self.right}'
+        return f"{self.val} {self.left} {self.right}"
 
 
 def node_to_list(root: TreeNode | None) -> list[int]:
@@ -40,10 +40,7 @@ def searchBST(root: TreeNode | None, val: int) -> TreeNode | None:
         return searchBST(root.left, val)
     return searchBST(root.right, val)
 
+
 root = TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7))
 val = 2
 print(node_to_list(searchBST(root, val)))
-
-
-
-

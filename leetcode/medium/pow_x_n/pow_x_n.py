@@ -48,7 +48,7 @@ def myPow5(x: float, n: int) -> float:  # log n linier in time, space log n
 
 def myPow6(x: float, n: int) -> float:  # log n linier in time, space log n
     if n < 0:
-        return 1/myPow6(x, -n)
+        return 1 / myPow6(x, -n)
     y = 1
     e = x
     while n > 0:

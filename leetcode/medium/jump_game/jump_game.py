@@ -1,5 +1,6 @@
 import functools
 
+
 def canJump1(nums: list[int]) -> bool:
     # [2,3,1,1,4]
     if len(nums) == 1:
@@ -24,7 +25,7 @@ def canJump3(nums: list[int]) -> bool:
         if i == len(nums) - 1:  # fixit
             return True
         max_jump = min(nums[i], len(nums) - i - 1)  # fixit
-        '''
+        """
         nums = [2, 3, 5, 1, 0, 4]
         i = 2 
         range = (1, 4)
@@ -32,7 +33,7 @@ def canJump3(nums: list[int]) -> bool:
           |
           f(i + jump) 
         
-        '''
+        """
         for jump in range(1, max_jump + 1):
             if f(i + jump):  # ?????
                 return True
@@ -88,7 +89,6 @@ def canJump6(nums: list[int]) -> bool:
     return f(0)
 
 
-
 can_jump = canJump5
 nums = [2, 3, 1, 1, 4]
 print(can_jump(nums))
@@ -102,15 +102,16 @@ print(can_jump(nums))
 nums = [100] * 100 + [0] * 101
 print(can_jump(nums))
 
+
 @functools.cache
 def foo(n):
     for _ in range(n):
-        print('Hello', n)
-    return n*10
+        print("Hello", n)
+    return n * 10
+
 
 print(foo(2))
 print(foo(3))
 print(foo(2))
 
 # create a decorator cache
-

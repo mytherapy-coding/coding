@@ -66,8 +66,13 @@ def findRightInterval3(intervals: list[list[int]]) -> list[int]:
     # Input: intervals = [[3,4],[2,3],[1,2]]
     # Output: [-1,0,1]
     return [
-        min([j for j in range(len(intervals)) if intervals[j][0] >= endi], key=lambda j: intervals[j][0], default=-1)
-        for _, endi in intervals]
+        min(
+            [j for j in range(len(intervals)) if intervals[j][0] >= endi],
+            key=lambda j: intervals[j][0],
+            default=-1,
+        )
+        for _, endi in intervals
+    ]
 
 
 def findRightInterval4(intervals: list[list[int]]) -> list[int]:
@@ -78,7 +83,14 @@ def findRightInterval4(intervals: list[list[int]]) -> list[int]:
     res = [-1] * len(intervals)
     for ii, i in enumerate(ordered):
         endi = intervals[i][1]
-        res[i] = next((j for jj in range(ii, len(intervals)) if intervals[(j := ordered[jj])][0] >= endi), -1)
+        res[i] = next(
+            (
+                j
+                for jj in range(ii, len(intervals))
+                if intervals[(j := ordered[jj])][0] >= endi
+            ),
+            -1,
+        )
     return res
 
 
@@ -87,7 +99,9 @@ def findRightInterval5(intervals: list[list[int]]) -> list[int]:  # O(n log n )
     res = [-1] * len(intervals)
     for ii, i in enumerate(ordered):
         endi = intervals[i][1]
-        kk = bisect.bisect_left(ordered, endi, lo=ii, hi=len(ordered), key=lambda j: intervals[j][0])
+        kk = bisect.bisect_left(
+            ordered, endi, lo=ii, hi=len(ordered), key=lambda j: intervals[j][0]
+        )
         res[i] = ordered[kk] if kk < len(ordered) else -1
     return res
 

@@ -72,11 +72,11 @@ def can_constract7(ransom_note: str, magazine: str) -> bool:
 
 def tests_can_constract():
     tab: tuple[tuple[str, str, bool], ...] = (
-        ('aa', 'aab', True),
-        ('a', 'ac', True),
-        ('ab', 'a', False),
-        ('aaa', 'a', False),
-        ('asv', 'v', False),
+        ("aa", "aab", True),
+        ("a", "ac", True),
+        ("ab", "a", False),
+        ("aaa", "a", False),
+        ("asv", "v", False),
     )
     funcs: tuple[callable[[str, str], bool], ...] = (
         can_constract1,
@@ -90,8 +90,9 @@ def tests_can_constract():
     for can_constract in funcs:
         for ransom_note, magazine, expected in tab:
             result = can_constract(ransom_note, magazine)
-            assert result == expected, \
-                f'failed on {can_constract.__name__}({ransom_note=},{magazine=})={result}, {expected=}'
+            assert (
+                result == expected
+            ), f"failed on {can_constract.__name__}({ransom_note=},{magazine=})={result}, {expected=}"
 
 
 tests_can_constract()

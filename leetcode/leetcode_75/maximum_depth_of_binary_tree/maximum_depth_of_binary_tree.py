@@ -30,7 +30,8 @@ def maxDepth3(root: TreeNode | None) -> int:
 
 
 def maxDepth4(root: TreeNode | None) -> int:
-    def depth(root: TreeNode | None) -> int: return max(depth(root.left), depth(root.right)) + 1 if root else 0
+    def depth(root: TreeNode | None) -> int:
+        return max(depth(root.left), depth(root.right)) + 1 if root else 0
 
     return depth(root)
 
@@ -41,9 +42,11 @@ def maxDepth5(root: TreeNode | None) -> int:
 
 
 def maxDepth6(root: TreeNode | None) -> int:
-    return (depth := lambda root: max(depth(root.left), depth(root.right)) + 1 if root else 0)(root)
+    return (
+        depth := lambda root: (
+            max(depth(root.left), depth(root.right)) + 1 if root else 0
+        )
+    )(root)
 
 
 print(maxDepth6(TreeNode(30, TreeNode(70, TreeNode(90)))))
-
-

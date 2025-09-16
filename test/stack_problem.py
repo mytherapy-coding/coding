@@ -1,7 +1,7 @@
 def check1(expr: str) -> bool:
     counter = 0
     for x in expr:
-        if x == '(':
+        if x == "(":
             counter += 1
         else:
             if counter == 0:
@@ -10,9 +10,9 @@ def check1(expr: str) -> bool:
     return counter == 0
 
 
-print(check1('()'))
-print(check1(''))
-print(check1('((()'))
+print(check1("()"))
+print(check1(""))
+print(check1("((()"))
 
 print()
 
@@ -20,7 +20,7 @@ print()
 def check2(expr: str) -> bool:
     stack = []
     for x in expr:
-        if x == '(':
+        if x == "(":
             stack.append(x)
         else:
             if not stack:
@@ -29,10 +29,10 @@ def check2(expr: str) -> bool:
     return not stack
 
 
-print(check2('()'))
-print(check2(''))
-print(check2('((()'))
-print(check2(')))'))
+print(check2("()"))
+print(check2(""))
+print(check2("((()"))
+print(check2(")))"))
 
 
 class Mystack:
@@ -52,11 +52,10 @@ class Mystack:
         return len(self.elems)
 
 
-
 def check3(expr: str) -> bool:
     st = Mystack()
     for x in expr:
-        if x == '(':
+        if x == "(":
             st.push(x)
         else:
             if st.empty():
@@ -65,14 +64,14 @@ def check3(expr: str) -> bool:
     return st.empty()
 
 
-print(check3('()'))
-print(check3(''))
-print(check3('((()'))
-print(check3(')))'))
+print(check3("()"))
+print(check3(""))
+print(check3("((()"))
+print(check3(")))"))
 
 
 def check4(expr: str) -> bool:
-    d = {'(': ')', '[': ']', '{': '}'}
+    d = {"(": ")", "[": "]", "{": "}"}
     stack = []
     for x in expr:
         if x in d:
@@ -99,14 +98,14 @@ def check4(expr: str) -> bool:
     return not stack
 
 
-print(check4('()'))
-print(check4(''))
-print(check4('((()'))
-print(check4(')))'))
+print(check4("()"))
+print(check4(""))
+print(check4("((()"))
+print(check4(")))"))
 
 
 def check5(expr: str) -> bool:
-    d = {'(': ')', '[': ']', '{': '}'}
+    d = {"(": ")", "[": "]", "{": "}"}
     stack = []
     for x in expr:
         if x in d:
@@ -119,8 +118,8 @@ def check5(expr: str) -> bool:
 
 
 def check6(expr: str) -> bool:
-    left = ['(', '[', '{', '<']
-    right = [')', ']', '}', '>']
+    left = ["(", "[", "{", "<"]
+    right = [")", "]", "}", ">"]
     stack = []
     for x in expr:
         if x in left:
@@ -133,13 +132,13 @@ def check6(expr: str) -> bool:
     return not stack
 
 
-print(check6('()'))
-print(check6(''))
-print(check6('((()'))
-print(check6(')))'))
+print(check6("()"))
+print(check6(""))
+print(check6("((()"))
+print(check6(")))"))
 print()
 print()
-'''
+"""
 Implement Counter: implementation 1 is based on integer, implementaion 2 is 
 based on Mystack. Methods to be implemented: inc(), dec(), get(), dec_if_exceeds(limit)
 def check1(expr: str) -> bool:
@@ -154,7 +153,9 @@ def check1(expr: str) -> bool:
     return counter == 0
 
 
-'''
+"""
+
+
 class Mycounter:
     def __init__(self, initial_value: int = 0):
         self.n = initial_value
@@ -179,7 +180,7 @@ class Mycounter:
 def check7(expr: str) -> bool:
     counter = Mycounter()
     for x in expr:
-        if x == '(':
+        if x == "(":
             counter.inc()
         else:
             if not counter.positive():
@@ -188,10 +189,10 @@ def check7(expr: str) -> bool:
     return not counter.positive()
 
 
-print(check7('()'))
-print(check7(''))
-print(check7('((()'))
-print(check7(')))'))
+print(check7("()"))
+print(check7(""))
+print(check7("((()"))
+print(check7(")))"))
 
 print("_______________________________")
 
@@ -220,7 +221,7 @@ class Mycounter2:
 def check8(expr: str) -> bool:
     counter = Mycounter2()
     for x in expr:
-        if x == '(':
+        if x == "(":
             counter.inc()
         else:
             if not counter.positive():
@@ -229,19 +230,17 @@ def check8(expr: str) -> bool:
     return not counter.positive()
 
 
-print(check8('()'))
-print(check8(''))
-print(check8('((()'))
-print(check8(')))'))
-print(check8('(())'))
+print(check8("()"))
+print(check8(""))
+print(check8("((()"))
+print(check8(")))"))
+print(check8("(())"))
+
 
 def check9(expr: str) -> bool:
 
-
-
-
-    print(check9('()'))
-    print(check9(''))
-    print(check9('((()'))
-    print(check9(')))'))
-    print(check9('(())'))
+    print(check9("()"))
+    print(check9(""))
+    print(check9("((()"))
+    print(check9(")))"))
+    print(check9("(())"))

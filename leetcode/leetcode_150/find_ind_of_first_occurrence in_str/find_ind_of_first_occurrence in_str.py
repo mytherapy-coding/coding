@@ -25,4 +25,3 @@ def strStr(haystack: str, needle: str) -> int:
         if find(haystack, needle, start):
             return start
     return -1
-

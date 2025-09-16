@@ -9,10 +9,10 @@ def longest_palindrome0(s):
     res = 0
     found_odd = False
     for ch in count:
-        if count[ch]%2 == 0:
+        if count[ch] % 2 == 0:
             res += count[ch]
         else:
-            res += count[ch]-1
+            res += count[ch] - 1
             found_odd = True
     if found_odd:
         res += 1
@@ -24,7 +24,7 @@ def longest_palindrome1(s):
     res = len(s)
     ending = 0
     for ch in count:
-        ending += count[ch]%2
+        ending += count[ch] % 2
     res -= ending
     if ending > 0:
         res += 1
@@ -41,12 +41,12 @@ def longest_palindrome2(s):
 def longest_palindrome3(s):
     count = collections.Counter(s)
     ending = sum(c % 2 for c in count.values())
-    return len(s) - max(ending -1, 0)
+    return len(s) - max(ending - 1, 0)
 
 
 def longest_palindrome4(s):
     count = collections.Counter(s)
-    ending = sum(itertools.islice((1 for c in count.values() if c%2 == 1), 1, None))
+    ending = sum(itertools.islice((1 for c in count.values() if c % 2 == 1), 1, None))
     return len(s) - ending
 
 
@@ -77,12 +77,12 @@ def longest_palindrome7(s):
 def run_test():
 
     tab = (
-        ('aa', 2),
-        ('abc', 1),
-        ('aab', 3),
-        ('', 0),
-        ('bbb', 3),
-        ('bbbaaa', 5),
+        ("aa", 2),
+        ("abc", 1),
+        ("aab", 3),
+        ("", 0),
+        ("bbb", 3),
+        ("bbbaaa", 5),
     )
     funcs = (
         longest_palindrome0,

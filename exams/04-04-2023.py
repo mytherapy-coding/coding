@@ -1,9 +1,9 @@
-print(reversed(list(range (1,11))))
-print(list(reversed(range (1, 10))))
-print(list (reversed (range (1, 11))))
-print(list(range (10,1, -1)))
-print(reversed(range (10,1, -1)))
-print(reversed((1,3,5)))
+print(reversed(list(range(1, 11))))
+print(list(reversed(range(1, 10))))
+print(list(reversed(range(1, 11))))
+print(list(range(10, 1, -1)))
+print(reversed(range(10, 1, -1)))
+print(reversed((1, 3, 5)))
 print()
 
 values = range(1000000000)
@@ -20,7 +20,7 @@ print(res)
 
 print()
 
-print(list(reversed( values[:10])))
+print(list(reversed(values[:10])))
 print()
 print(values[:10][::-1])
 print(values[:10:-1])
@@ -31,7 +31,7 @@ print(list(reversed(values)))
 print(values[::-1])
 
 
-'''
+"""
 
 Which command will create a list from 10 down to 1? Example:
 
@@ -147,4 +147,4 @@ because of a blank space at the end of the body of the for loop
 O because of the level of indentation after the for loop
 
 
-'''
+"""

@@ -5,17 +5,17 @@ class TreeNode:
         self.right = right
 
     def __repr__(self):
-        return f'{self.val} {self.left} {self.right}'
+        return f"{self.val} {self.left} {self.right}"
 
 
 def deleteNode(root: TreeNode | None, key: int) -> TreeNode | None:
     if not root:
         return None
-    '''
+    """
     - find a node
     - delete a node
     - move 
-    '''
+    """
     print(root.val)
     if key == root.val:  # I found this root, it has to be deleted
         if not root.left and not root.right:
@@ -47,7 +47,9 @@ def deleteNode(root: TreeNode | None, key: int) -> TreeNode | None:
 
 
 # root = [5,3,6,2,4,null,7], key = 3
-root = TreeNode(5, TreeNode(3, TreeNode(2), TreeNode(4)), TreeNode(6, None, TreeNode(7)))
+root = TreeNode(
+    5, TreeNode(3, TreeNode(2), TreeNode(4)), TreeNode(6, None, TreeNode(7))
+)
 print(root)
 key = 3
 print(deleteNode(root, key))

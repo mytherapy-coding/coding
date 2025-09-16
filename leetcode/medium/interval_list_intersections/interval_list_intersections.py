@@ -1,4 +1,6 @@
-def intervalIntersection0(firstList: list[list[int]], secondList: list[list[int]]) -> list[list[int]]:
+def intervalIntersection0(
+    firstList: list[list[int]], secondList: list[list[int]]
+) -> list[list[int]]:
     def intersect(iv1, iv2):
         start1, end1 = iv1
         start2, end2 = iv2
@@ -16,18 +18,34 @@ def intervalIntersection0(firstList: list[list[int]], secondList: list[list[int]
     return res
 
 
-def intervalIntersection1(firstList: list[list[int]], secondList: list[list[int]]) -> list[list[int]]:
+def intervalIntersection1(
+    firstList: list[list[int]], secondList: list[list[int]]
+) -> list[list[int]]:
     def intersect(iv1, iv2):
         return [max(iv1[0], iv2[0]), min(iv1[1], iv2[1])]
 
-    return [iv for iv1 in firstList for iv2 in secondList if (iv := intersect(iv1, iv2))[1] >= iv[0]]
+    return [
+        iv
+        for iv1 in firstList
+        for iv2 in secondList
+        if (iv := intersect(iv1, iv2))[1] >= iv[0]
+    ]
 
 
-def intervalIntersection2(firstList: list[list[int]], secondList: list[list[int]]) -> list[list[int]]:
-    return [iv for iv1 in firstList for iv2 in secondList if (iv := [max(iv1[0], iv2[0]), min(iv1[1], iv2[1])])[1] >= iv[0]]
+def intervalIntersection2(
+    firstList: list[list[int]], secondList: list[list[int]]
+) -> list[list[int]]:
+    return [
+        iv
+        for iv1 in firstList
+        for iv2 in secondList
+        if (iv := [max(iv1[0], iv2[0]), min(iv1[1], iv2[1])])[1] >= iv[0]
+    ]
 
 
-def intervalIntersection3(firstList: list[list[int]], secondList: list[list[int]]) -> list[list[int]]:
+def intervalIntersection3(
+    firstList: list[list[int]], secondList: list[list[int]]
+) -> list[list[int]]:
     def intersect(iv1, iv2):
         return [max(iv1[0], iv2[0]), min(iv1[1], iv2[1])]
 
@@ -42,7 +60,9 @@ def intervalIntersection3(firstList: list[list[int]], secondList: list[list[int]
     return res
 
 
-def intervalIntersection4(firstList: list[list[int]], secondList: list[list[int]]) -> list[list[int]]:
+def intervalIntersection4(
+    firstList: list[list[int]], secondList: list[list[int]]
+) -> list[list[int]]:
     def intersect(iv1, iv2):
         return [max(iv1[0], iv2[0]), min(iv1[1], iv2[1])]
 
@@ -66,7 +86,9 @@ def intervalIntersection4(firstList: list[list[int]], secondList: list[list[int]
     return res
 
 
-def intervalIntersection5(firstList: list[list[int]], secondList: list[list[int]]) -> list[list[int]]:
+def intervalIntersection5(
+    firstList: list[list[int]], secondList: list[list[int]]
+) -> list[list[int]]:
     def intersect(iv1, iv2):
         return [max(iv1[0], iv2[0]), min(iv1[1], iv2[1])]
 
@@ -87,6 +109,6 @@ def intervalIntersection5(firstList: list[list[int]], secondList: list[list[int]
     return res
 
 
-firstList = [[1,3],[5,9]]
+firstList = [[1, 3], [5, 9]]
 secondList = [[3, 5]]
 print(intervalIntersection5(firstList, secondList))
