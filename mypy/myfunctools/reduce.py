@@ -1,6 +1,6 @@
-import operator
 import functools
 import math
+import operator
 
 
 def reduce(f, iterable, initial=None):

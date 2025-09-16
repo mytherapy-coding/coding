@@ -153,8 +153,9 @@ def test_to_jaden_case():
 
 
 def perftest_to_jaden_case():
+    import math
+    import timeit
     from collections.abc import Callable
-    import timeit, math
 
     n = 4_000_000
     tab: tuple[tuple[str, int], ...] = (

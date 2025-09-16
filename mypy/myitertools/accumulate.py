@@ -1,5 +1,5 @@
-import operator
 import itertools
+import operator
 
 
 def gen_sum(iterable):

@@ -1,5 +1,4 @@
-from collections import defaultdict
-from collections import Counter
+from collections import Counter, defaultdict
 
 
 def count(s: str) -> dict[str, int]:

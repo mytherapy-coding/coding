@@ -1,5 +1,5 @@
-import heapq
 import collections
+import heapq
 import itertools
 
 

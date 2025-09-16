@@ -1,5 +1,5 @@
 from collections import Counter
-from itertools import product, chain
+from itertools import chain, product
 
 
 def isValidSudoku(board: list[list[str]]) -> bool:

@@ -1,4 +1,5 @@
-import string, itertools
+import itertools
+import string
 
 
 def is_pangram1(s: str) -> bool:

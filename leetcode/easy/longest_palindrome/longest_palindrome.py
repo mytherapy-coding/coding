@@ -1,7 +1,7 @@
 import collections
+import functools
 import itertools
 import operator
-import functools
 
 
 def longest_palindrome0(s):

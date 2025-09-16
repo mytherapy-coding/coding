@@ -1,5 +1,4 @@
-from itertools import chain
-from itertools import zip_longest
+from itertools import chain, zip_longest
 
 
 class TreeNode:

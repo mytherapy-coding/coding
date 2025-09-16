@@ -1,5 +1,5 @@
-from itertools import accumulate
 import math
+from itertools import accumulate
 from operator import mul
 
 

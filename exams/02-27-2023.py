@@ -1,5 +1,5 @@
-import math
 import functools
+import math
 
 
 def unique_words(s, k):

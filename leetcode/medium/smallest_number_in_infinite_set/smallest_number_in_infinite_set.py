@@ -1,5 +1,5 @@
-import heapq
 import collections
+import heapq
 
 
 class SmallestInfiniteSet0:

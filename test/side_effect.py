@@ -1,5 +1,5 @@
-import itertools
 import collections
+import itertools
 
 x = 10
 y = 20

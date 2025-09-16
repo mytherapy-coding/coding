@@ -1,6 +1,6 @@
 import collections
-import heapq
 import dataclasses
+import heapq
 
 
 def topKFrequent0(words: list[str], k: int) -> list[str]:
