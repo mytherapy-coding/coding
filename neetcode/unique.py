@@ -18,8 +18,6 @@ def unique_numbers(array):
 print(unique_numbers([7, 7, 7, 7, 8, 9, 10, 10, 11, 12]))
 
 
-
-
 def unique_numbers1(array):
     if not array:
         return []
