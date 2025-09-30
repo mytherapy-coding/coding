@@ -1,4 +1,4 @@
-
+from itertools import zip_longest
 
 def missingNumber1(nums: list[int]) -> int:
     n = len(nums)
@@ -9,9 +9,9 @@ def missingNumber1(nums: list[int]) -> int:
 
 def missingNumber(nums: list[int]) -> int:
     n = len(nums)
-    sorted_list = sorted(nums)
+    sorted_nums = sorted(nums)
     prev_x = - 1
-    for x in sorted_list:
+    for x in sorted_nums:
         if x != prev_x + 1:
             return x - 1
         prev_x = x 
@@ -20,8 +20,8 @@ def missingNumber(nums: list[int]) -> int:
 
 def missingNumber2(nums: list[int]) -> int:
     n = len(nums)
-    sorted_list = sorted(nums)
-    for i, x in enumerate(sorted_list):
+    sorted_nums = sorted(nums)
+    for i, x in enumerate(sorted_nums):
         if i != x:
             return i
     return n
@@ -33,11 +33,31 @@ def missingNumber3(nums: list[int]) -> int:
 def missingNumber4(nums: list[int]) -> int:
     return next(x for x in range(len(nums) + 1) if x not in nums)
 
+def missingNumber5(nums: list[int]) -> int:
+    return next(x for x in range(len(nums) + 1) if x not in nums)
+
+def missingNumber6(nums: list[int]) -> int:
+    n = len(nums)
+    sorted_nums = sorted(nums)
+    for i, x in zip_longest(range(n), sorted_nums):
+        if i != x:
+            return i
+    return n
+
+
 print(missingNumber([0, 1, 2, 3]))
 print(missingNumber1([0, 1, 2, 3]))
 print(missingNumber2([0, 1, 2, 3]))      
 print(missingNumber3([0, 1, 2, 3]))
 print(missingNumber4([0, 1, 2, 3]))
+print(missingNumber5([0, 1, 2, 3]))
+print(missingNumber6([0, 1, 2, 3]))
+print(missingNumber([0, 1, 2, 3]))
+print(missingNumber([0, 1, 2, 3]))
+print(missingNumber([0, 1, 2, 3]))
+print(missingNumber([0, 1, 2, 3]))
+
+
 
 # bisect 
 
