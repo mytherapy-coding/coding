@@ -8,10 +8,8 @@ def mySqrt(x: int) -> int:
         if mid * mid > x:
             right = mid
         else:
-            left = mid 
+            left = mid
     return left
 
 
-            
 print(mySqrt(1))
-        
