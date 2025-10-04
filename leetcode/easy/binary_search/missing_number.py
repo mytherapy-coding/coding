@@ -1,6 +1,6 @@
 from bisect import bisect, bisect_left, bisect_right
-from itertools import zip_longest
 from heapq import heapify, heappop
+from itertools import zip_longest
 
 
 def missingNumber0(nums: list[int]) -> int:
@@ -58,12 +58,14 @@ def missingNumber7(nums: list[int]) -> int:
         if ind >= n or sorted_nums[ind] != x:
             return x
 
+
 def missingNumber8(nums: list[int]) -> int:
     n = len(nums)
     unique = set(nums)
     for x in range(n + 1):
         if x not in unique:
             return x
+
 
 def missingNumber9(nums: list[int]) -> int:
     n = len(nums)
@@ -73,12 +75,14 @@ def missingNumber9(nums: list[int]) -> int:
         if heappop(nums) != x:
             return x
     return n
-        
+
+
 def missingNumber10(nums: list[int]) -> int:
     n = len(nums)
     nums = nums[:]
     heapify(nums)
     return next((x for x in range(n) if heappop(nums) != x), n)
+
 
 def missingNumber11(nums: list[int]) -> int:
     sorted_nums = sorted(nums)
@@ -88,28 +92,57 @@ def missingNumber11(nums: list[int]) -> int:
     """
     end = 0,1,...,n-1
     [0..end] -- has gap => true
-
     """
-
     def has_gap(end: int) -> bool:
-        return nums[end] != end
-    
-    def binary_search(low, high, target):
+        return sorted_nums[end] != end
+
+    def binary_search():
         # [0, 1, 2, 3, 5, 6]
         low = 0
-        high = n-1
+        high = n - 1
+        assert has_gap(high)
+        assert low == 0 or not has_gap(low-1)
+
         while low < high:
-            mid = (high + low)//2
-            if nums[mid] == target:
-                return mid
-            if mid < target:
-                # get right side
-                low = mid
-            else:
+            # there is a gap [low; high]
+            # has_gap(high) -> True
+            assert has_gap(high)
+            assert low == 0 or not has_gap(low-1)
+
+            mid = (high + low) // 2
+            if has_gap(mid):
+                assert has_gap(high) and has_gap(mid)
+                assert low == 0 or not has_gap(low-1)
+
                 high = mid
 
+                assert has_gap(high)
+                assert low == 0 or not has_gap(low-1)
+            else:
+                assert not has_gap(mid)
+                assert has_gap(high)
+                assert low == 0 or not has_gap(low-1)
 
-    return 
+                low = mid+1
+
+                assert has_gap(high)
+                assert low == 0 or not has_gap(low-1)
+    
+            assert has_gap(high)
+            assert low == 0 or not has_gap(low-1)
+
+
+        assert low == high
+        assert has_gap(high)
+        assert low == 0 or not has_gap(low-1)
+
+        return high
+
+    if not has_gap(n-1):
+        return n
+    return binary_search()
+
+
 """
 nums[n-1] == n-1  -> no gap
 nums[n-1] == n -> gap
@@ -119,7 +152,7 @@ nums[end] == end -> no gap
 [0, 1, 2, 3, 4]
 [0, 1, 2, 3, 5]
 """
-#def test
+# def test
 nums0 = [3, 2, 0, 1, 5, 6]
 nums1 = [3, 2, 0, 1, 5, 6, 4]
 
