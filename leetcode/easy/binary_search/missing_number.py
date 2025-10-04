@@ -1,5 +1,6 @@
 from bisect import bisect, bisect_left, bisect_right
 from itertools import zip_longest
+from heapq import heapify, heappop
 
 
 def missingNumber0(nums: list[int]) -> int:
@@ -57,39 +58,92 @@ def missingNumber7(nums: list[int]) -> int:
         if ind >= n or sorted_nums[ind] != x:
             return x
 
+def missingNumber8(nums: list[int]) -> int:
+    n = len(nums)
+    unique = set(nums)
+    for x in range(n + 1):
+        if x not in unique:
+            return x
 
-# def missingNumber8(nums: list[int]) -> int:
+def missingNumber9(nums: list[int]) -> int:
+    n = len(nums)
+    nums = nums[:]
+    heapify(nums)
+    for x in range(n):
+        if heappop(nums) != x:
+            return x
+    return n
+        
+def missingNumber10(nums: list[int]) -> int:
+    n = len(nums)
+    nums = nums[:]
+    heapify(nums)
+    return next((x for x in range(n) if heappop(nums) != x), n)
 
-nums = [3, 2, 0, 1, 5, 6]
+def missingNumber11(nums: list[int]) -> int:
+    sorted_nums = sorted(nums)
+    n = len(nums)
+    print(sorted_nums)
+
+    """
+    end = 0,1,...,n-1
+    [0..end] -- has gap => true
+
+    """
+
+    def has_gap(end: int) -> bool:
+        return nums[end] != end
+    
+    def binary_search(low, high, target):
+        # [0, 1, 2, 3, 5, 6]
+        low = 0
+        high = n-1
+        while low < high:
+            mid = (high + low)//2
+            if nums[mid] == target:
+                return mid
+            if mid < target:
+                # get right side
+                low = mid
+            else:
+                high = mid
+
+
+    return 
+"""
+nums[n-1] == n-1  -> no gap
+nums[n-1] == n -> gap
+
+nums[end] == end -> no gap
+
+[0, 1, 2, 3, 4]
+[0, 1, 2, 3, 5]
+"""
+#def test
+nums0 = [3, 2, 0, 1, 5, 6]
 nums1 = [3, 2, 0, 1, 5, 6, 4]
 
 
 funcs = [
     missingNumber0,
     missingNumber1,
-    missingNumber2,
     missingNumber3,
-    missingNumber4,
     missingNumber5,
-    missingNumber6,
     missingNumber7,
+    missingNumber8,
+    missingNumber9,
+    missingNumber6,
+    missingNumber2,
+    missingNumber4,
+    missingNumber10,
+    missingNumber11,
 ]
-for func in funcs:
-    print(func.__qualname__, func(nums), func(nums1))
+for func in funcs[-3:]:
+    print(func.__qualname__, func(nums0), func(nums1))
+
+print(nums0, nums1)
 
 
-# bisect
-
-
-# set
-
-
-# next() any
-
-# sorted,
 # binary search my own loop devide by half and check where is a gap in left or right part - logn
 
-# heap
-
-
-# quick sort
+# quick select
