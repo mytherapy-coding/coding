@@ -93,6 +93,7 @@ def missingNumber11(nums: list[int]) -> int:
     end = 0,1,...,n-1
     [0..end] -- has gap => true
     """
+
     def has_gap(end: int) -> bool:
         return sorted_nums[end] != end
 
@@ -101,44 +102,43 @@ def missingNumber11(nums: list[int]) -> int:
         low = 0
         high = n - 1
         assert has_gap(high)
-        assert low == 0 or not has_gap(low-1)
+        assert low == 0 or not has_gap(low - 1)
 
         while low < high:
             # there is a gap [low; high]
             # has_gap(high) -> True
             assert has_gap(high)
-            assert low == 0 or not has_gap(low-1)
+            assert low == 0 or not has_gap(low - 1)
 
             mid = (high + low) // 2
             if has_gap(mid):
                 assert has_gap(high) and has_gap(mid)
-                assert low == 0 or not has_gap(low-1)
+                assert low == 0 or not has_gap(low - 1)
 
                 high = mid
 
                 assert has_gap(high)
-                assert low == 0 or not has_gap(low-1)
+                assert low == 0 or not has_gap(low - 1)
             else:
                 assert not has_gap(mid)
                 assert has_gap(high)
-                assert low == 0 or not has_gap(low-1)
+                assert low == 0 or not has_gap(low - 1)
 
-                low = mid+1
+                low = mid + 1
 
                 assert has_gap(high)
-                assert low == 0 or not has_gap(low-1)
-    
-            assert has_gap(high)
-            assert low == 0 or not has_gap(low-1)
+                assert low == 0 or not has_gap(low - 1)
 
+            assert has_gap(high)
+            assert low == 0 or not has_gap(low - 1)
 
         assert low == high
         assert has_gap(high)
-        assert low == 0 or not has_gap(low-1)
+        assert low == 0 or not has_gap(low - 1)
 
         return high
 
-    if not has_gap(n-1):
+    if not has_gap(n - 1):
         return n
     return binary_search()
 
@@ -152,6 +152,8 @@ nums[end] == end -> no gap
 [0, 1, 2, 3, 4]
 [0, 1, 2, 3, 5]
 """
+
+
 # def test
 nums0 = [3, 2, 0, 1, 5, 6]
 nums1 = [3, 2, 0, 1, 5, 6, 4]
