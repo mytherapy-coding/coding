@@ -87,8 +87,6 @@ def missingNumber10(nums: list[int]) -> int:
 def missingNumber11(nums: list[int]) -> int:
     sorted_nums = sorted(nums)
     n = len(nums)
-    print(sorted_nums)
-
     """
     end = 0,1,...,n-1
     [0..end] -- has gap => true
@@ -143,6 +141,64 @@ def missingNumber11(nums: list[int]) -> int:
     return binary_search()
 
 
+def missingNumber12(nums: list[int]) -> int:
+    def quickselect(nums: list[int], k: int) -> int:
+        if not nums:
+            return k
+
+        pivot = nums[-1]
+        left = []
+        right = []
+        for x in nums[:-1]:
+            if x < pivot:
+                left.append(x)
+            else:
+                right.append(x)
+
+        pivot_ind = len(left)
+
+        if pivot_ind == pivot - k:
+            return quickselect(right, k + len(left) + 1)
+        else:
+            return quickselect(left, k)
+
+    return quickselect(nums, k=0)
+
+
+def partition(nums: int, beg: int, end: int, pivot_ind: int) -> int:
+    nums[end], nums[pivot_ind] = nums[pivot_ind], nums[end]
+    pivot = nums[end]
+    i = beg - 1
+    for j in range(beg, end):
+        if nums[j] <= pivot:
+            i += 1
+            nums[i], nums[j] = nums[j], nums[i]
+    nums[i + 1], nums[end] = nums[end], nums[i + 1]
+    return i + 1
+
+
+def missingNumber13(nums: list[int]) -> int:
+    def qselect(beg: int, end: int) -> int:
+        nonlocal nums
+        if beg == end:
+            if nums[beg] != beg:
+                return beg
+        if beg >= end:
+            return None
+
+        pivot_ind = partition(nums, beg, end, pivot_ind=end)
+        pivot = nums[pivot_ind]
+
+        if pivot_ind == pivot:
+            return qselect(pivot_ind + 1, end)
+
+        r = qselect(beg, pivot_ind - 1)
+        return pivot - 1 if r is None else r
+
+    r = qselect(beg=0, end=len(nums) - 1)
+    return len(nums) if r is None else r
+
+
 """
 nums[n-1] == n-1  -> no gap
 nums[n-1] == n -> gap
@@ -154,31 +210,31 @@ nums[end] == end -> no gap
 """
 
 
-# def test
-nums0 = [3, 2, 0, 1, 5, 6]
-nums1 = [3, 2, 0, 1, 5, 6, 4]
+def test():
+    # def test
+    nums0 = [3, 2, 0, 1, 5, 6]
+    nums1 = [3, 2, 0, 1, 5, 6, 4]
+    nums2 = [0, 1]
+
+    funcs = [
+        missingNumber0,
+        missingNumber1,
+        missingNumber2,
+        missingNumber3,
+        missingNumber4,
+        missingNumber5,
+        missingNumber6,
+        missingNumber7,
+        missingNumber8,
+        missingNumber9,
+        missingNumber10,
+        missingNumber11,
+        missingNumber12,
+        missingNumber13,
+    ]
+    for func in funcs:
+        print(func.__qualname__, func(nums0[:]), func(nums1[:]), func(nums2[:]))
 
 
-funcs = [
-    missingNumber0,
-    missingNumber1,
-    missingNumber3,
-    missingNumber5,
-    missingNumber7,
-    missingNumber8,
-    missingNumber9,
-    missingNumber6,
-    missingNumber2,
-    missingNumber4,
-    missingNumber10,
-    missingNumber11,
-]
-for func in funcs[-3:]:
-    print(func.__qualname__, func(nums0), func(nums1))
-
-print(nums0, nums1)
-
-
-# binary search my own loop devide by half and check where is a gap in left or right part - logn
-
-# quick select
+if __name__ == "__main__":
+    test()
