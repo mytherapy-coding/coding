@@ -159,8 +159,8 @@ def missingNumber12(nums: list[int]) -> int:
 
         if pivot_ind == pivot - k:
             return quickselect(right, k + len(left) + 1)
-        else:
-            return quickselect(left, k)
+
+        return quickselect(left, k)
 
     return quickselect(nums, k=0)
 
