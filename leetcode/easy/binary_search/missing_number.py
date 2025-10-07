@@ -61,11 +61,13 @@ def missingNumber7(nums: list[int]) -> int:
 
 def missingNumber8(nums: list[int]) -> int:
     n = len(nums)
-    unique = set(nums)
-    for x in range(n + 1):
-        if x not in unique:
+    unique = set(nums) # O(n)
+    for x in range(n + 1): # O(n)
+        if x not in unique: # O(1)
             return x
-
+        
+# time complexity - O(n)
+# space complexity - O(n)
 
 def missingNumber9(nums: list[int]) -> int:
     n = len(nums)
