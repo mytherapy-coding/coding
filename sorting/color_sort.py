@@ -69,8 +69,8 @@ def sort_012(arr: list[int]):
     if ind is None:
         return
 
-    ind = partition(arr, 0, len(arr) - 1, ind)
     pivot = arr[ind]
+    ind = partition(arr, 0, len(arr) - 1, ind)
     if pivot == 0:
         ind1 = find([1])
         if ind1 is not None:
@@ -84,4 +84,37 @@ def sort_012(arr: list[int]):
 arr = [1, 0, 2, 2, 1, 0, 1]
 print("-------------")
 sort_012(arr)
+print(arr)
+
+
+def two_color_sort(arr: list[int], beg: int, end: int, key):
+
+    i = beg
+    j = end
+    while i < j:
+        x = key(arr[i])
+        y = key(arr[j])
+        if x == 1 and y == 0:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+            j -= 1
+        if x == 0 and y == 0:
+            i += 1
+        if x == 1 and y == 1:
+            j -= 1
+        if x == 0 and y == 1:
+            i += 1
+            j -= 1
+
+
+def three_color_sort(arr: list[int]):
+
+    two_color_sort(arr, 0, len(arr) - 1, key=lambda value: 1 if value > 0 else 0)
+
+    two_color_sort(arr, 0, len(arr) - 1, key=lambda value: 1 if value > 1 else 0)
+
+
+arr = [1, 0, 2, 2, 1, 0, 1]
+print("++++++++")
+three_color_sort(arr)
 print(arr)
