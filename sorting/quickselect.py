@@ -1,4 +1,4 @@
-def partition(nums: int, beg: int, end: int, pivot_ind: int) -> int:
+def partition(nums: list[int], beg: int, end: int, pivot_ind: int) -> int:
     nums[end], nums[pivot_ind] = nums[pivot_ind], nums[end]
     pivot = nums[end]
     i = beg - 1

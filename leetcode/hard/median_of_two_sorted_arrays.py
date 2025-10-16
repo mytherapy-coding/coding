@@ -16,6 +16,7 @@ def findMedianSortedArrays1(nums1: list[int], nums2: list[int]) -> float:
         return nums[med_ind]
     return (nums[med_ind] + nums[med_ind - 1]) / 2
 
+
 def merge_sorted_lists(a, b):
     # [10, 20, 30]
     # [15, 50]
@@ -28,16 +29,15 @@ def merge_sorted_lists(a, b):
         else:
             yield b[j]
             j += 1
-    
+
     assert i >= len(a) or j >= len(b)
 
     while i < len(a):
         yield a[i]
-        i+=1
+        i += 1
     while j < len(b):
         yield b[j]
-        j+=1
-
+        j += 1
 
 
 def findMedianSortedArrays2(nums1: list[int], nums2: list[int]) -> float:
