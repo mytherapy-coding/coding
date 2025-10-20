@@ -2,6 +2,7 @@ import collections
 
 
 class ArrQueue:
+
     def __init__(self, seq=None):
         self.elems = []
         if seq:
@@ -169,7 +170,6 @@ class LinkedListQueue:
             cur = cur.next
         return False
 
-    def __iter__(self):
 
 
 
@@ -206,6 +206,6 @@ def test_queue():
     print(len(queue))
     sum0 = sum(range(1001))
     print(sum0, sum1, sum2, sum3, sum4, sum5)
-
-
+    
+    
 test_queue()
