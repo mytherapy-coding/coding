@@ -122,3 +122,4 @@ class Bank:
         if not account:
             return Status(error="ACCOUNT_NOT_FOUND")
         return account.get_status()
+
