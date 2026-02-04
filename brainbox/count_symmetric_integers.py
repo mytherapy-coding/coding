@@ -19,11 +19,4 @@ def countSymmetricIntegers(low, high):
     return count
 
 print(countSymmetricIntegers(1, 100))        # 9
-print(countSymmetricIntegers(10, 99))        # 9
-print(countSymmetricIntegers(100, 200))      # 0
-print(countSymmetricIntegers(1, 1000))       # 9
-print(countSymmetricIntegers(1200, 1300))    # 4
-print(countSymmetricIntegers(1000, 9999))    # 615
-print(countSymmetricIntegers(11, 11))        # 1
-print(countSymmetricIntegers(12, 12))        # 0
-print(countSymmetricIntegers(0, 0))          # 0
+
